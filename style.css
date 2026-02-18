@@ -431,3 +431,15 @@ button:hover {
     opacity: 0.3;
   }
 }
+
+.container {
+  text-align: center;
+}
+
+#projects .big {
+  margin-top: 3rem;
+}
+
+p > a {
+  color: white;
+}
