@@ -3,96 +3,294 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="resume.css" /> -->
-    <link rel="stylesheet" href="style.css" />
-    <title>Dev_Femi Resume</title>
+
+    <!-- Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      href="public/asset/image/codersrank-svgrepo-com.svg"
+      type="image/svg+xml"
+    />
+
+    <title>Femi Sodiq Oladele — Software Engineer Resume</title>
+
+    <style>
+      :root {
+        --bg: #0b0f17;
+        --primary: #38bdf8;
+        --text: #e5e7eb;
+        --muted: #94a3b8;
+        --body: #cbd5e1;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0 5%;
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      main {
+        max-width: 850px;
+        margin: 60px auto;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2.4rem;
+        color: var(--primary);
+      }
+
+      header p {
+        margin: 4px 0;
+        color: var(--muted);
+      }
+
+      section {
+        margin-top: 40px;
+      }
+
+      h2 {
+        color: var(--primary);
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+      }
+
+      h3 {
+        margin: 0;
+        font-weight: 600;
+      }
+
+      span {
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      ul {
+        margin: 10px 0 0 20px;
+        padding: 0;
+        color: var(--body);
+      }
+
+      p {
+        color: var(--body);
+        margin: 6px 0;
+      }
+
+      a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 8px 20px;
+        border: 1px solid var(--primary);
+        border-radius: 6px;
+        transition: 0.3s ease;
+      }
+
+      .btn:hover {
+        background: var(--primary);
+        color: #000;
+      }
+
+      .item {
+        margin-bottom: 20px;
+      }
+
+      /* PRINT OPTIMIZATION */
+      @media print {
+        body {
+          background: white !important;
+          color: black !important;
+          margin: 20mm;
+        }
+
+        a {
+          color: black;
+        }
+
+        .btn {
+          display: none;
+        }
+      }
+    </style>
   </head>
+
   <body>
-    <section id="resume" class="section resume-section">
-      <div class="resume-container">
-        <!-- Header -->
-        <div class="resume-header">
-          <h1>Femi Sodiq Oladele</h1>
-          <p>Full Stack Developer & Blockchain Engineer</p>
+    <main>
+      <header>
+        <h1>Femi Sodiq Oladele</h1>
+        <p>Software Engineer | Full Stack & Systems-Focused</p>
+        <p>
+          ✉️
+          <a href="mailto:oladelesodiq4568@gmail.com"
+            >oladelesodiq4568@gmail.com</a
+          >
+          |
+          <span>📞<a href="tel:+2348130732551">+234 813 073 2551</a></span>
+        </p>
+        <p>
+          🌐:<a
+            target="_blank"
+            href="https://oluwafemi00.github.io/dev-portfolio/"
+          >
+            Portfolio</a
+          >
+        </p>
+        <p>
+          💻:
+          <a target="_blank" href="https://github.com/oluwafemi00">GitHub</a>
+        </p>
+        <a
+          href="Femi Sodiq Oladele — Software Engineer Resume.pdf"
+          class="btn"
+          download
+          >Download PDF</a
+        >
+      </header>
+
+      <section>
+        <h2>Professional Summary</h2>
+        <p>
+          Software Engineer building scalable backend systems and performant web
+          applications. Strong foundation in API architecture, database design,
+          and system optimization. Passionate about clean code, reliability, and
+          engineering discipline.
+        </p>
+      </section>
+
+      <section>
+        <h2>Technical Skills</h2>
+        <ul>
+          <li><strong>Languages:</strong> JavaScript (ES6+), SQL, C++</li>
+          <li><strong>Frontend:</strong> React.js, HTML5, CSS3, Tailwind</li>
+          <li><strong>Backend:</strong> Node.js, Express.js</li>
+          <li><strong>Databases:</strong> PostgreSQL, MongoDB</li>
+          <li><strong>Tools:</strong> Git, GitHub, REST APIs, Postman</li>
+          <li>
+            <strong>Concepts:</strong> Data Structures, System Design, MVC, Auth
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+
+        <article class="item">
+          <h3>Full Stack Developer — Freelance</h3>
+          <span>2025 – Present</span>
+          <ul>
+            <li>
+              Designed and deployed scalable full-stack applications using React
+              and Node.js
+            </li>
+            <li>Built REST APIs with PostgreSQL and MongoDB</li>
+            <li>Optimized database queries reducing response time</li>
+            <li>Implemented secure authentication systems</li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <h3>Systems Engineer Intern — Tracheid HLX Edtech Solution</h3>
+          <span>2025 – 2026</span>
           <p>
-            Email:
-            <a href="mailto:oladelesodiq4568@gmail.com"
-              >oladelesodiq4568@gmail.com</a
-            >
-            | Phone: +2348130732551
+            Optimized backend architecture and implemented secure APIs for
+            scalable client systems.
           </p>
-          <!-- <a
-            href="./assets/Oluwafemi_Resume.pdf"
-            class="resume-download"
-            download
-            >Download Resume</a
-          > -->
-        </div>
+        </article>
+      </section>
 
-        <!-- Skills -->
-        <div class="resume-section-block">
-          <h2>Technical Skills</h2>
+      <section>
+        <h2>Projects</h2>
+
+        <article class="item">
+          <h3>CS Pathfinder</h3>
+          <p>Academic resource management platform</p>
           <ul>
-            <li>JavaScript, Node.js, Express.js, React.js, React Native</li>
-            <li>HTML5, CSS3, Bootstrap, Tailwind</li>
-            <li>PostgreSQL, MongoDB</li>
-            <li>Systems Architecture & Optimization</li>
-            <li>Git, GitHub, Agile Development</li>
+            <li>Built full-stack academic resource management platform</li>
+            <li>Designed relational database schema</li>
+            <li>Implemented CRUD operations and filtering</li>
           </ul>
-        </div>
+        </article>
 
-        <!-- Experience -->
-        <div class="resume-section-block">
-          <h2>Experience</h2>
-          <div class="resume-item">
-            <h3>Full Stack Developer — Freelance</h3>
-            <span>2024 - Present</span>
-            <p>
-              Designed and deployed responsive web applications with Node.js,
-              React, and PostgreSQL. Built UI/UX architecture for seamless user
-              experience.
-            </p>
-          </div>
-          <div class="resume-item">
-            <h3>Systems Engineer Intern — Tracheid HLX Edtech Solution</h3>
-            <span>2025 - 2026</span>
-            <p>
-              Optimized server-side architecture, implemented secure APIs, and
-              assisted in designing scalable software systems for clients across
-              multiple domains.
-            </p>
-          </div>
-        </div>
-
-        <!-- Education -->
-        <div class="resume-section-block">
-          <h2>Education</h2>
-          <div class="resume-item">
-            <h3>BSc Computer Science — University of Ilorin</h3>
-            <span>2023 - 2027</span>
-            <p>
-              Specialization in software development, database management, and
-              system design. Active member of the CIS Debate and Quiz Club.
-            </p>
-          </div>
-        </div>
-
-        <!-- Projects -->
-        <div class="resume-section-block">
-          <h2>Selected Projects</h2>
+        <article class="item">
+          <h3>BMI & Weight Category Detector</h3>
+          <p>A high-performance health utility</p>
           <ul>
             <li>
-              CS Pathfinder — Resource organization platform for computer
-              science students
+              Implemented real-time input validation and automatic weight
+              category detection.
             </li>
-            <li>SwiftCart — Front-end e-commerce project</li>
             <li>
-              Personal Portfolio — Interactive stealth & systems portfolio
+              Demonstrates precision in JavaScript logic and a focus on
+              providing immediate, accessible user feedback.
             </li>
           </ul>
-        </div>
-      </div>
-    </section>
-    <script src="resume.js"></script>
+        </article>
+
+        <article class="item">
+          <h3>GitHub Projects Website</h3>
+          <p>A sleek, responsive GitHub project website</p>
+          <ul>
+            <li>Built to showcase all my GitHub projects in one place.</li>
+            <li>
+              serves as a central hub where recruiters, collaborators, and tech
+              enthusiasts can explore my work, view project details, and access
+              live demos.
+            </li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <h3>SwiftCart</h3>
+          <p>E-commerce Frontend System</p>
+          <ul>
+            <li>Developed responsive e-commerce UI using vanilla JavaScript</li>
+            <li>Implemented dynamic cart logic and state management</li>
+            <li>Optimized UI rendering performance</li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <h3>Personal Portfolio</h3>
+          <p>
+            Personal website showcasing projects, live demos, and technical
+            skills with a focus on performance and usability.
+          </p>
+          <ul>
+            <li>Architected modern interactive interface</li>
+            <li>Implemented dynamic rendering and animations</li>
+            <li>Optimized for Lighthouse performance</li>
+          </ul>
+        </article>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <article class="item">
+          <h3>BSc Computer Science — University of Ilorin</h3>
+          <span>2023 – 2027</span>
+          <p>
+            Coursework: Data Structures, Database Systems, Operating Systems,
+            Software Engineering.
+          </p>
+        </article>
+      </section>
+    </main>
   </body>
 </html>

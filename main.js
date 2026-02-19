@@ -96,3 +96,26 @@ window.addEventListener("load", () => {
     document.getElementById("loader").style.display = "none";
   }, 1200);
 });
+
+const contactForm = document.getElementById("contact-form");
+const status = document.getElementById("form-status");
+
+contactForm.addEventListener("submit", async (e) => {
+  e.preventDefault(); // Stop page reload
+  const data = new FormData(e.target);
+
+  status.innerHTML = "Sending...";
+
+  const response = await fetch(e.target.action, {
+    method: contactForm.method,
+    body: data,
+    headers: { Accept: "application/json" },
+  });
+
+  if (response.ok) {
+    status.innerHTML = "Thanks! Your message has been sent.";
+    contactForm.reset();
+  } else {
+    status.innerHTML = "Oops! There was a problem submitting your form.";
+  }
+});

@@ -13,6 +13,11 @@
       content="Building scalable backend systems with structure and precision."
     />
     <meta property="og:type" content="website" />
+    <link
+      rel="icon"
+      href="public/asset/image/codersrank-svgrepo-com.svg"
+      type="image/svg+xml"
+    />
 
     <title>Femi Oladele | Software Engineer</title>
 
@@ -39,7 +44,15 @@
     </div>
     <!-- ================= NAVBAR ================= -->
     <header class="navbar">
-      <div class="logo">OO.</div>
+      <div>
+        <h1>
+          <img
+            class="logo"
+            src="public/asset/image/codersrank-svgrepo-com.svg"
+            alt="logo"
+          />Dev_Femi
+        </h1>
+      </div>
       <button id="theme-toggle">🌙</button>
       <nav>
         <a href="#hero">Home</a>
@@ -52,14 +65,12 @@
     <!-- ================= HERO ================= -->
     <section id="hero" class="section hero fade-in">
       <div class="container">
-        <h1>Femi Oladele</h1>
+        <h1>Femi Sodiq Oladele</h1>
         <p class="subtitle">
           <span id="typing"></span>
         </p>
         <div class="cta-buttons">
-          <a href="resume.html" download class="btn secondary"
-            >Download Resume</a
-          >
+          <a href="resume.html" class="btn secondary">View Resume</a>
           <a href="#skills" class="btn primary">View Skills</a>
           <a href="#contact" class="btn secondary">Let’s Work Together</a>
         </div>
@@ -219,7 +230,6 @@
         <p>
           Open to internships, freelance projects, and backend collaborations.
         </p>
-
         <div class="social-links">
           <a href="https://linkedin.com/in/sodiq-oladele" target="_blank">
             <i class="fab fa-linkedin"></i>
@@ -239,11 +249,37 @@
       </div>
     </section>
 
+    <section id="contact-container">
+      <h2>Get In Touch</h2>
+      <form
+        id="contact-form"
+        action="https://formspree.io/f/xwvnbydy"
+        method="POST"
+      >
+        <div class="form-group">
+          <input type="text" name="text" placeholder="Your Name" required />
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Your Email" required />
+        </div>
+        <div class="form-group">
+          <textarea
+            name="message"
+            placeholder="Tell me about your project..."
+            rows="5"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" id="form-submit">Send Message</button>
+        <p id="form-status"></p>
+      </form>
+    </section>
+
     <div class="divider"></div>
 
     <!-- ================= FOOTER ================= -->
     <footer class="footer">
-      <p>&copy; 2026 Femi Oladele. All rights reserved.</p>
+      <p>&copy; 2026 Femi Sodiq Oladele. All rights reserved.</p>
     </footer>
 
     <script src="main.js"></script>
