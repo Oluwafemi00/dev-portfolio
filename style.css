@@ -470,7 +470,7 @@ h1 > img {
 #contact-form {
   max-width: 60% !important;
   margin: 2rem 0 !important;
-  padding: 2rem !important;
+  padding: 1rem !important;
 
   background: rgba(255, 255, 255, 0.05);
   border-radius: 15px !important;
@@ -478,12 +478,12 @@ h1 > img {
 }
 
 #contact-container {
-  margin-left: 25% !important;
+  margin-left: 30% !important;
   text-align: center !important;
 }
 
 #contact-container > h2 {
-  margin-right: 35% !important;
+  margin-right: 40% !important;
 }
 
 .form-group {
@@ -520,4 +520,34 @@ textarea:focus {
 
 #form-submit:hover {
   opacity: 0.8 !important;
+}
+
+.navbar h1 {
+  font-size: 1.5rem;
+}
+
+/* Styles for screens 480px wide and below (like mobile) */
+@media (max-width: 768px) {
+  body {
+    font-size: 12px;
+  }
+
+  #contact-form {
+    max-width: 90% !important;
+    margin: 2rem 0 !important;
+    padding: 1rem !important;
+
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px !important;
+    backdrop-filter: blur(10px) !important;
+  }
+
+  #contact-container {
+    margin-left: 10% !important;
+    text-align: center !important;
+  }
+
+  #contact-container > h2 {
+    margin-right: 10% !important;
+  }
 }
