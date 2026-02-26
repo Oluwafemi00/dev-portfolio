@@ -3,284 +3,472 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Femi Oladele | Software Engineer</title>
+    <meta name="title" content="Femi Sodiq Oladele | Software Architect" />
     <meta
       name="description"
-      content="Oluwafemi Oladele - Backend-focused software engineer building scalable web systems with clean architecture and performance in mind."
+      content="Full Stack JavaScript Developer specializing in high-performance backends, Node.js, and relational architectures."
     />
-    <meta property="og:title" content="Oluwafemi Oladele | Software Engineer" />
+    <meta
+      name="keywords"
+      content="Software Engineer, Backend Developer, Node.js, PostgreSQL, React, JavaScript, Femi Oladele"
+    />
+    <meta name="author" content="Femi Sodiq Oladele" />
+
+    <meta name="theme-color" content="#050505" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://oluwafemi00.github.io/dev-portfolio/"
+    />
+    <meta
+      property="og:title"
+      content="Femi Sodiq Oladele | Software Engineer"
+    />
     <meta
       property="og:description"
-      content="Building scalable backend systems with structure and precision."
+      content="Engineering Scalable Digital Backbones. View my projects, architectural logs, and resume."
     />
-    <meta property="og:type" content="website" />
-    <link
-      rel="icon"
-      href="public/asset/image/codersrank-svgrepo-com.svg"
-      type="image/svg+xml"
+    <meta
+      property="og:image"
+      content="https://oluwafemi00.github.io/dev-portfolio/public/asset/image/og-preview.png"
     />
 
-    <title>Femi Oladele | Software Engineer</title>
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://oluwafemi00.github.io/dev-portfolio/"
+    />
+    <meta
+      property="twitter:title"
+      content="Femi Sodiq Oladele | Software Engineer"
+    />
+    <meta
+      property="twitter:description"
+      content="Engineering Scalable Digital Backbones. View my projects, architectural logs, and resume."
+    />
+    <meta
+      property="twitter:image"
+      content="https://oluwafemi00.github.io/dev-portfolio/public/asset/image/og-preview.png"
+    />
 
-    <!-- Google Font -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
     <div class="progress-bar"></div>
-    <div class="cursor-glow"></div>
-    <div id="loader">
-      <div class="loader-text">Initializing System...</div>
-    </div>
-    <!-- ================= NAVBAR ================= -->
+
     <header class="navbar">
-      <div>
-        <h1>
-          <img
-            class="logo"
-            src="public/asset/image/codersrank-svgrepo-com.svg"
-            alt="logo"
-          />Dev_Femi
-        </h1>
+      <div class="logo-area">
+        <span class="logo-text">F. Oladele</span>
       </div>
-      <button id="theme-toggle">🌙</button>
-      <nav>
-        <a href="#hero">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+
+      <div class="mobile-toggle" id="mobile-menu-trigger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="#about" class="nav-link">Studio</a>
+        <a href="#projects" class="nav-link">Archive</a>
+        <a href="resume.html" class="nav-link">Resume</a>
+        <a href="#contact" class="nav-link">Inquiry</a>
       </nav>
+
+      <div class="system-monitor desktop-only">
+        <div class="monitor-item">
+          <span class="label">CPU</span>
+          <div class="bar-bg">
+            <div class="bar-fill" id="cpu-bar" style="width: 12%"></div>
+          </div>
+        </div>
+        <div class="monitor-item">
+          <span class="label">MEM</span>
+          <div class="bar-bg">
+            <div class="bar-fill" id="mem-bar" style="width: 44%"></div>
+          </div>
+        </div>
+      </div>
     </header>
 
-    <!-- ================= HERO ================= -->
-    <section id="hero" class="section hero fade-in">
-      <div class="container">
-        <h1>Femi Sodiq Oladele</h1>
-        <p class="subtitle">
-          <span id="typing"></span>
-        </p>
-        <div class="cta-buttons">
-          <a href="resume.html" class="btn secondary">View Resume</a>
-          <a href="#skills" class="btn primary">View Skills</a>
-          <a href="#contact" class="btn secondary">Let’s Work Together</a>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- ================= ABOUT ================= -->
-    <section id="about" class="section about fade-in">
-      <div class="container about-content">
-        <div class="about-text">
-          <h2>About Me</h2>
-          <p>
-            I am a backend-focused software engineer passionate about building
-            structured, scalable, and production-ready web systems.
+    <main>
+      <section id="hero" class="hero-premium">
+        <div class="hero-bg-text">SYSTEMS</div>
+        <div class="container">
+          <span class="eyebrow">Backend Architect • Performance Engineer</span>
+          <h1 class="statement">
+            Engineering <span class="italic-serif">Scalable</span> <br />
+            Digital Backbones.
+          </h1>
+          <p class="hero-description">
+            I build production-ready web applications using
+            <strong>React, Node.js, Express, and PostgreSQL</strong>, focusing
+            on clean architecture, scalable backends, and real-world systems.
           </p>
-          <p>
-            My approach emphasizes simplicity, maintainability, and long-term
-            architectural thinking rather than quick fixes.
+          <div class="hero-btns">
+            <button
+              class="btn-premium magnetic"
+              onclick="
+                location.href =
+                  'https://oluwafemi00.github.io/my-project-portfolio/'
+              "
+            >
+              Explore Projects
+            </button>
+            <button
+              class="btn-outline magnetic"
+              onclick="location.href = '#contact'"
+            >
+              Contact Me
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container philosophy-grid">
+          <div class="philosophy-text">
+            <span class="eyebrow">Technical Philosophy</span>
+            <h2 class="statement">
+              Predictable Systems. <br /><span class="italic-serif"
+                >Uncompromising</span
+              >
+              Stability.
+            </h2>
+            <p class="hero-description">
+              I view backend engineering as the art of managing entropy. My
+              approach is rooted in three core pillars:
+            </p>
+
+            <div class="pillars">
+              <article class="pillar-item">
+                <h4>01. Structural Integrity</h4>
+                <p>
+                  Code is secondary to architecture. I prioritize clean schemas
+                  and predictable data flows.
+                </p>
+              </article>
+              <article class="pillar-item">
+                <h4>02. Defensive Engineering</h4>
+                <p>
+                  I build for the "failure case." If it can't handle a race
+                  condition, it isn't production-ready.
+                </p>
+              </article>
+              <article class="pillar-item">
+                <h4>03. Performance Observability</h4>
+                <p>
+                  A system you can't measure is a system you can't control. I
+                  integrate monitoring into the foundation.
+                </p>
+              </article>
+            </div>
+          </div>
+          <div class="philosophy-image">
+            <div class="image-frame">
+              <img
+                src="./public/asset/image/IMG_20250210_141234_079.webp"
+                alt="Femi Oladele"
+                class="elite-portrait"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container">
+          <h2 class="section-title">Selected Projects</h2>
+          <div class="bento-grid">
+            <div class="bento-item wide">
+              <div class="schema-mini">
+                <svg viewBox="0 0 200 100" class="architecture-svg">
+                  <rect
+                    x="10"
+                    y="40"
+                    width="30"
+                    height="20"
+                    rx="2"
+                    fill="none"
+                    stroke="currentColor"
+                  />
+                  <path
+                    d="M40 50 L70 50"
+                    stroke="currentColor"
+                    fill="none"
+                    class="flow-line"
+                  />
+                  <rect
+                    x="70"
+                    y="30"
+                    width="50"
+                    height="40"
+                    rx="2"
+                    fill="none"
+                    stroke="currentColor"
+                  />
+                  <path
+                    d="M120 50 L150 50"
+                    stroke="currentColor"
+                    fill="none"
+                    class="flow-line"
+                  />
+                  <ellipse
+                    cx="165"
+                    cy="50"
+                    rx="15"
+                    ry="20"
+                    fill="none"
+                    stroke="currentColor"
+                  />
+                </svg>
+              </div>
+              <div class="bento-content">
+                <span class="tag">System Architecture</span>
+                <h3>SwiftCart</h3>
+                <p>
+                  Multi-tenant logistics engine focusing on
+                  <span class="italic-serif">concurrency control</span>.
+                </p>
+                <div class="bento-links">
+                  <a
+                    href="https://github.com/Oluwafemi00/Full-Stack-Swiftcart-App"
+                    target="_blank"
+                    class="magnetic"
+                    >View Repository →</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="bento-item">
+              <div class="bento-content">
+                <span class="tag">Data Visualization</span>
+                <h3>BMI Analytics</h3>
+                <p>Real-time health metrics visualization engine.</p>
+              </div>
+            </div>
+
+            <div class="bento-item">
+              <div class="bento-content">
+                <span class="tag">PostgreSQL</span>
+                <h3>Schema Master</h3>
+                <p>
+                  Complex relational modeling for high-traffic environments.
+                </p>
+              </div>
+            </div>
+
+            <div class="bento-item wide archive-card">
+              <div class="schema-mini">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1"
+                >
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path
+                    d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="project-info">
+                <span class="tag">Education Arch</span>
+                <h3>CS Pathfinder 🚀</h3>
+                <p>
+                  A structured knowledge repository for CS undergraduates,
+                  bridging the gap between theoretical data structures and
+                  real-world deployment.
+                </p>
+                <div class="tech-stack-mini">
+                  <span>EJS</span><span>CSS3</span><span>JavaScript</span>
+                </div>
+                <div class="archive-links">
+                  <a
+                    href="https://github.com/Oluwafemi00"
+                    target="_blank"
+                    class="btn-text"
+                    >View Source</a
+                  >
+                  <span class="status-badge">32 Deployments</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="infrastructure" class="section">
+        <div class="container">
+          <h2 class="section-title">API Specification</h2>
+          <div class="api-doc-card" style="margin-bottom: 4rem">
+            <div class="api-endpoint">
+              <span class="method post">POST</span>
+              <span class="path">/api/v1/auth/provision</span>
+            </div>
+            <div class="code-block-premium">
+              <code
+                >{ "identity_token": "sha256_99b...", "access_tier":
+                "admin_restricted" }</code
+              >
+            </div>
+          </div>
+
+          <div class="terminal-premium">
+            <div class="terminal-header">
+              <div class="dots">
+                <span class="r"></span><span class="y"></span
+                ><span class="g"></span>
+              </div>
+              <span class="terminal-title">system://infrastructure_status</span>
+            </div>
+            <div class="terminal-body">
+              <p class="command">> current.focus()</p>
+              <p class="output">
+                "High-concurrency API design & PostgreSQL optimization"
+              </p>
+              <p class="command">> node.status</p>
+              <p class="status">● OPERATIONAL</p>
+              <p class="command">> system.latency</p>
+              <p class="output" id="latency-text">24ms</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div class="container contact-content">
+          <span class="eyebrow">Secure Channel</span>
+          <h2 class="statement">
+            Let’s <span class="italic-serif">Connect</span>
+          </h2>
+          <p class="hero-description">
+            Open to internships, freelance projects, and backend collaborations.
           </p>
-        </div>
 
-        <div class="about-image">
-          <img
-            src="./public/asset/image/IMG_20250210_141234_079.webp"
-            alt="Oluwafemi"
-          />
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- ================= SKILLS ================= -->
-    <section id="skills" class="section skills fade-in">
-      <div class="container">
-        <h2>Core Skills</h2>
-
-        <div class="skills-grid">
-          <div class="skill-card">
-            <i class="fas fa-code"></i>
-            <h3>Frontend Development</h3>
-            <p>HTML, CSS, JavaScript, React</p>
-          </div>
-
-          <div class="skill-card">
-            <i class="fas fa-server"></i>
-            <h3>Backend Development</h3>
-            <p>Node.js, Express.js, REST APIs</p>
-          </div>
-
-          <div class="skill-card">
-            <i class="fas fa-database"></i>
-            <h3>Database Management</h3>
-            <p>PostgreSQL, SQL</p>
-          </div>
-
-          <div class="skill-card">
-            <i class="fas fa-mobile-alt"></i>
-            <h3>Mobile Development</h3>
-            <p>React Native</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- ================= PROJECTS ================= -->
-    <section id="projects" class="section projects fade-in">
-      <div class="container">
-        <h2>Featured Projects</h2>
-
-        <div class="projects-grid">
-          <div class="project-card">
-            <h3>BMI Health Dashboard</h3>
-            <p>
-              An interactive BMI calculator with real-time validation, dynamic
-              health feedback, and responsive design.
-            </p>
-            <div class="project-tags">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
+          <div class="access-vault">
+            <div class="social-links" id="standard-links">
+              <a
+                href="https://linkedin.com/in/sodiq-oladele"
+                target="_blank"
+                title="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a
+                href="https://github.com/Oluwafemi00"
+                target="_blank"
+                title="GitHub"
+                ><i class="fab fa-github"></i
+              ></a>
+              <button id="elevate-btn" class="btn-mini-terminal magnetic">
+                SUDO_ACCESS
+              </button>
             </div>
-            <div class="project-links">
-              <a
-                href="https://oluwafemi00.github.io/bmi-calculator-app/"
-                class="btn primary small"
-                target="_blank"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/Oluwafemi00/bmi-calculator-app"
-                class="btn secondary small"
-                target="_blank"
-                >GitHub</a
-              >
+
+            <div id="elevated-links" class="hidden-links" style="display: none">
+              <div class="terminal-access-line">
+                <span class="tag">DECRYPTED_LINK:</span>
+                <a
+                  href="https://wa.me/2348130732551?text=Hello%20I%20visited%20your%20website!"
+                  target="_blank"
+                  class="whatsapp-link"
+                >
+                  <i class="fab fa-whatsapp"></i> +234 813 073 2551
+                </a>
+              </div>
             </div>
           </div>
 
-          <div class="project-card">
-            <h3>SwiftCart</h3>
-            <p>
-              A modern e-commerce frontend interface focused on layout
-              structure, responsiveness, and user experience.
-            </p>
-            <div class="project-tags">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
-            </div>
-            <div class="project-links">
-              <a
-                href="https://oluwafemi00.github.io/swiftcart/"
-                class="btn primary small"
-                target="_blank"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/Oluwafemi00/swiftcart"
-                class="btn secondary small"
-                target="_blank"
-                >GitHub</a
-              >
-            </div>
-          </div>
-        </div>
-        <a
-          href="https://oluwafemi00.github.io/my-project-portfolio/"
-          class="btn secondary big"
-          target="_blank"
-          >Check GitHub Projects</a
-        >
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <section class="section fade-in">
-      <div class="container">
-        <h2>Now Building</h2>
-        <p>
-          • Strengthening backend architecture with Node.js & Express •
-          Designing scalable REST APIs • Deepening C++ fundamentals
-        </p>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- ================= CONTACT ================= -->
-    <section id="contact" class="section contact">
-      <div class="container contact-content">
-        <h2>Let’s Connect</h2>
-        <p>
-          Open to internships, freelance projects, and backend collaborations.
-        </p>
-        <div class="social-links">
-          <a href="https://linkedin.com/in/sodiq-oladele" target="_blank">
-            <i class="fab fa-linkedin"></i>
-          </a>
-
-          <a
-            href="https://wa.me/2348130732551?text=Hello%20I%20visited%20your%20website!"
-            target="_blank"
+          <form
+            id="contact-form"
+            action="https://formspree.io/f/xwvnbydy"
+            method="POST"
           >
-            <i class="fab fa-whatsapp"></i>
-          </a>
+            <div class="form-row">
+              <input type="text" name="name" placeholder="Full Name" required />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                required
+              />
+            </div>
+            <textarea
+              name="message"
+              placeholder="Project details and architectural requirements..."
+              rows="4"
+              required
+            ></textarea>
+            <button type="submit" class="btn-premium magnetic">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
 
-          <a href="https://github.com/Oluwafemi00" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div class="footer-left">
+          <div class="server-logs" id="log-stream">
+            <div class="log-entry initializing">
+              [SYSTEM]: Handshake initialized...
+            </div>
+          </div>
+          <p>&copy; 2026 Femi Sodiq Oladele. All rights reserved.</p>
+        </div>
+
+        <div class="footer-right">
+          <div class="footer-status">
+            <div class="utc-clock">
+              <span class="label">UTC:</span>
+              <span id="server-time">00:00:00</span>
+            </div>
+            <span class="status-dot"></span>
+            <span class="status-text">System Health: 99.9%</span>
+          </div>
+          <div
+            class="perf-audit"
+            style="
+              margin-top: 5px;
+              opacity: 0.5;
+              font-family: monospace;
+              font-size: 0.6rem;
+            "
+          >
+            <span id="load-time">TTFB: 12ms</span> |
+            <span id="dom-ready">DOM: 142ms</span>
+          </div>
         </div>
       </div>
-    </section>
-
-    <section id="contact-container">
-      <h2>Get In Touch</h2>
-      <form
-        id="contact-form"
-        action="https://formspree.io/f/xwvnbydy"
-        method="POST"
-      >
-        <div class="form-group">
-          <input type="text" name="text" placeholder="Your Name" required />
-        </div>
-        <div class="form-group">
-          <input type="email" name="email" placeholder="Your Email" required />
-        </div>
-        <div class="form-group">
-          <textarea
-            name="message"
-            placeholder="Tell me about your project..."
-            rows="5"
-            required
-          ></textarea>
-        </div>
-        <button type="submit" id="form-submit">Send Message</button>
-        <p id="form-status"></p>
-      </form>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- ================= FOOTER ================= -->
-    <footer class="footer">
-      <p>&copy; 2026 Femi Sodiq Oladele. All rights reserved.</p>
     </footer>
+
+    <div id="kernel-panic" class="panic-overlay" style="display: none">
+      <div class="panic-content">
+        <h1 class="panic-title">FATAL_EXCEPTION_0x00F1</h1>
+        <div class="panic-logs" id="panic-terminal"></div>
+        <div class="panic-footer">
+          <p>System stability compromised by rapid-fire requests.</p>
+          <p>
+            Type <span class="highlight">"REBOOT"</span> to initialize recovery
+            sequence.
+          </p>
+          <input type="text" id="panic-input" autocomplete="off" />
+        </div>
+      </div>
+    </div>
 
     <script src="main.js"></script>
   </body>
