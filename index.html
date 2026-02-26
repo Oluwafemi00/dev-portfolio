@@ -330,37 +330,47 @@
 
       <section id="infrastructure" class="section">
         <div class="container">
-          <h2 class="section-title">API Specification</h2>
+          <h2 class="section-title">API Design & Infrastructure</h2>
+
           <div class="api-doc-card" style="margin-bottom: 4rem">
             <div class="api-endpoint">
               <span class="method post">POST</span>
-              <span class="path">/api/v1/auth/provision</span>
+              <span class="path">/api/orders</span>
             </div>
+
             <div class="code-block-premium">
-              <code
-                >{ "identity_token": "sha256_99b...", "access_tier":
-                "admin_restricted" }</code
-              >
+              <code>
+                { "user_id": 24, "product_id": 102, "quantity": 2,
+                "delivery_address": "Campus Gate" }
+              </code>
             </div>
           </div>
 
           <div class="terminal-premium">
             <div class="terminal-header">
               <div class="dots">
-                <span class="r"></span><span class="y"></span
-                ><span class="g"></span>
+                <span class="r"></span>
+                <span class="y"></span>
+                <span class="g"></span>
               </div>
-              <span class="terminal-title">system://infrastructure_status</span>
+
+              <span class="terminal-title">system://developer_status</span>
             </div>
+
             <div class="terminal-body">
-              <p class="command">> current.focus()</p>
+              <p class="command">> current_focus</p>
               <p class="output">
-                "High-concurrency API design & PostgreSQL optimization"
+                "Building production-style full-stack applications"
               </p>
-              <p class="command">> node.status</p>
-              <p class="status">● OPERATIONAL</p>
-              <p class="command">> system.latency</p>
-              <p class="output" id="latency-text">24ms</p>
+
+              <p class="command">> tech_stack</p>
+              <p class="output">"React • Node.js • Express • PostgreSQL"</p>
+
+              <p class="command">> project</p>
+              <p class="output">"SwiftCart – Delivery & E-commerce Platform"</p>
+
+              <p class="command">> status</p>
+              <p class="status">● Actively Developing</p>
             </div>
           </div>
         </div>
