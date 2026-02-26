@@ -61,6 +61,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      href="public/asset/image/codersrank-svgrepo-com.svg"
+      type="image/svg+xml"
+    />
   </head>
 
   <body>
@@ -81,9 +86,9 @@
 
       <nav class="nav-menu">
         <a href="#about" class="nav-link">Studio</a>
-        <a href="#projects" class="nav-link">Archive</a>
+        <a href="#projects" class="nav-link">Projects</a>
         <a href="resume.html" class="nav-link">Resume</a>
-        <a href="#contact" class="nav-link">Inquiry</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
       <div class="system-monitor desktop-only">
@@ -106,10 +111,10 @@
       <section id="hero" class="hero-premium">
         <div class="hero-bg-text">SYSTEMS</div>
         <div class="container">
-          <span class="eyebrow">Backend Architect • Performance Engineer</span>
+          <span class="eyebrow">Full-Stack Developer • Backend-Focused</span>
           <h1 class="statement">
             Engineering <span class="italic-serif">Scalable</span> <br />
-            Digital Backbones.
+            Web Applications.
           </h1>
           <p class="hero-description">
             I build production-ready web applications using
@@ -119,10 +124,7 @@
           <div class="hero-btns">
             <button
               class="btn-premium magnetic"
-              onclick="
-                location.href =
-                  'https://oluwafemi00.github.io/my-project-portfolio/'
-              "
+              onclick="location.href = '#projects'"
             >
               Explore Projects
             </button>
@@ -141,36 +143,38 @@
           <div class="philosophy-text">
             <span class="eyebrow">Technical Philosophy</span>
             <h2 class="statement">
-              Predictable Systems. <br /><span class="italic-serif"
-                >Uncompromising</span
-              >
-              Stability.
+              Predictable Systems. <br />
+              <span class="italic-serif">Reliable</span> Design.
             </h2>
             <p class="hero-description">
-              I view backend engineering as the art of managing entropy. My
-              approach is rooted in three core pillars:
+              I approach backend engineering as the discipline of building
+              reliable and structured systems. My work focuses on clean
+              architecture, RESTful APIs, and scalable database design.
             </p>
 
             <div class="pillars">
               <article class="pillar-item">
-                <h4>01. Structural Integrity</h4>
+                <h4>01. Clean Architecture</h4>
                 <p>
-                  Code is secondary to architecture. I prioritize clean schemas
-                  and predictable data flows.
+                  I design backend systems with clear structure, organized
+                  databases, and maintainable code.
                 </p>
               </article>
+
               <article class="pillar-item">
-                <h4>02. Defensive Engineering</h4>
+                <h4>02. Robust APIs</h4>
                 <p>
-                  I build for the "failure case." If it can't handle a race
-                  condition, it isn't production-ready.
+                  I build RESTful APIs with validation and error handling to
+                  ensure reliable application behavior.
                 </p>
               </article>
+
               <article class="pillar-item">
-                <h4>03. Performance Observability</h4>
+                <h4>03. Production-Style Projects</h4>
                 <p>
-                  A system you can't measure is a system you can't control. I
-                  integrate monitoring into the foundation.
+                  I build full-stack applications that reflect real-world
+                  systems, including role-based dashboards and structured
+                  backends.
                 </p>
               </article>
             </div>
@@ -190,6 +194,7 @@
       <section id="projects" class="section">
         <div class="container">
           <h2 class="section-title">Selected Projects</h2>
+
           <div class="bento-grid">
             <div class="bento-item wide">
               <div class="schema-mini">
@@ -235,11 +240,12 @@
                 </svg>
               </div>
               <div class="bento-content">
-                <span class="tag">System Architecture</span>
+                <span class="tag">Full-Stack Application</span>
                 <h3>SwiftCart</h3>
                 <p>
-                  Multi-tenant logistics engine focusing on
-                  <span class="italic-serif">concurrency control</span>.
+                  Production-style delivery and e-commerce platform with
+                  role-based dashboards, RESTful APIs, and structured database
+                  design.
                 </p>
                 <div class="bento-links">
                   <a
@@ -254,9 +260,13 @@
 
             <div class="bento-item">
               <div class="bento-content">
-                <span class="tag">Data Visualization</span>
-                <h3>BMI Analytics</h3>
-                <p>Real-time health metrics visualization engine.</p>
+                <span class="tag">Web Application</span>
+                <h3>BMI Calculator</h3>
+                <p>
+                  Interactive BMI calculator that provides instant results and
+                  health classification through a clean and responsive
+                  interface.
+                </p>
               </div>
             </div>
 
@@ -265,7 +275,9 @@
                 <span class="tag">PostgreSQL</span>
                 <h3>Schema Master</h3>
                 <p>
-                  Complex relational modeling for high-traffic environments.
+                  Designed and implemented structured relational databases for
+                  full-stack applications with clean schemas and predictable
+                  data flow.
                 </p>
               </div>
             </div>
@@ -284,28 +296,34 @@
                   ></path>
                 </svg>
               </div>
-              <div class="project-info">
-                <span class="tag">Education Arch</span>
-                <h3>CS Pathfinder 🚀</h3>
+
+              <div class="bento-content">
+                <span class="tag">Education Tool</span>
+                <h3>CS Pathfinder</h3>
                 <p>
                   A structured knowledge repository for CS undergraduates,
-                  bridging the gap between theoretical data structures and
-                  real-world deployment.
+                  connecting core concepts like data structures and algorithms
+                  to practical applications.
                 </p>
                 <div class="tech-stack-mini">
                   <span>EJS</span><span>CSS3</span><span>JavaScript</span>
                 </div>
-                <div class="archive-links">
+                <div class="bento-links">
                   <a
                     href="https://github.com/Oluwafemi00"
                     target="_blank"
                     class="btn-text"
-                    >View Source</a
+                    >View Repository →</a
                   >
                   <span class="status-badge">32 Deployments</span>
                 </div>
               </div>
             </div>
+          </div>
+          <div class="bento-links">
+            <a href="https://oluwafemi00.github.io/my-project-portfolio/">
+              See more projects</a
+            >
           </div>
         </div>
       </section>

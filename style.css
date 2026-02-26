@@ -377,6 +377,10 @@ body {
   color: var(--accent);
 }
 
+.bento-links > a {
+  color: #c5a059;
+}
+
 /* Archive Specifics */
 .archive-card {
   background: linear-gradient(145deg, #0c0c0c, #050505);
