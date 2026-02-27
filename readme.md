@@ -2,7 +2,8 @@
 
 [![Live Deployment](https://img.shields.io/badge/Live_Deployment-Operational-27c93f?style=for-the-badge)](https://oluwafemi00.github.io/dev-portfolio/)
 [![Architecture](https://img.shields.io/badge/Architecture-Vanilla_JS-c5a059?style=for-the-badge)]()
-[![Performance](https://img.shields.io/badge/Lighthouse-100%25-success?style=for-the-badge)]()
+
+[![Performance](https://img.shields.io/badge/Lighthouse-98%25-success?style=for-the-badge)]()
 
 A high-performance, zero-dependency digital portfolio and engineering log engineered to showcase backend architecture, API design, and full-stack capabilities.
 
