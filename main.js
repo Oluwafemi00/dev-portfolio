@@ -1,7 +1,7 @@
 // ==========================================
 // 1. CRITICAL UI (Runs Immediately)
 // ==========================================
-// We keep the cursor logic outside the load event so it feels instantly responsive.
+// Keep the cursor logic outside the load event so it feels instantly responsive.
 const dot = document.querySelector(".cursor-dot");
 const outline = document.querySelector(".cursor-outline");
 
