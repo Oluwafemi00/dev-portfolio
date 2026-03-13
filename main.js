@@ -261,3 +261,69 @@ window.addEventListener("load", () => {
     });
   }
 });
+function initTerminalTyping() {
+  const terminalBody = document.querySelector(".terminal-body");
+  if (!terminalBody) return;
+
+  // 1. Grab all the lines (commands, outputs, status)
+  const lines = Array.from(terminalBody.children);
+
+  // 2. Store their original content and hide them
+  const lineData = lines.map((line) => {
+    const htmlContent = line.innerHTML;
+    const textContent = line.textContent;
+    const isCommand = line.classList.contains("command");
+
+    line.innerHTML = ""; // Empty the line temporarily
+
+    return { element: line, htmlContent, textContent, isCommand };
+  });
+
+  let currentLine = 0;
+
+  // 3. The function that types out the code
+  function processNextLine() {
+    if (currentLine >= lineData.length) return; // All done!
+
+    const { element, htmlContent, textContent, isCommand } =
+      lineData[currentLine];
+
+    if (isCommand) {
+      // If it's a command, type it out character by character
+      let charIndex = 0;
+      element.classList.add("typing-cursor"); // Add the blinking block
+
+      const typingInterval = setInterval(() => {
+        element.textContent = textContent.slice(0, ++charIndex);
+
+        if (charIndex === textContent.length) {
+          clearInterval(typingInterval);
+          element.classList.remove("typing-cursor"); // Remove cursor
+          currentLine++;
+          setTimeout(processNextLine, 200); // Short pause before showing output
+        }
+      }, 40); // 40ms per character - adjust for typing speed!
+    } else {
+      // If it's an output or status, just pop it onto the screen instantly
+      element.innerHTML = htmlContent;
+      currentLine++;
+      setTimeout(processNextLine, 600); // Longer pause before the next command starts
+    }
+  }
+
+  // 4. Use an Observer so it only starts when you scroll to the terminal
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting) {
+        processNextLine();
+        observer.disconnect(); // Stop observing so it only types once
+      }
+    },
+    { threshold: 0.5 },
+  ); // Triggers when 50% of the terminal is visible
+
+  observer.observe(terminalBody);
+}
+
+// Start the setup
+initTerminalTyping();

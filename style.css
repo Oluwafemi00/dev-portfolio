@@ -432,6 +432,17 @@ body {
   margin-right: 10px;
   font-weight: bold;
 }
+
+.method.get {
+  color: #61affe; /* A nice standard API blue */
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* Optional: Ensure the <pre> tag doesn't break your layout on small screens */
+.code-block-premium pre {
+  overflow-x: auto;
+}
 .code-block-premium {
   background: #000;
   padding: 1.5rem;
@@ -482,7 +493,6 @@ body {
   color: var(--text-dim);
   margin-bottom: 1.5rem;
 }
-
 /* ==========================================================================
    CONTACT FORM & ACCESS VAULT
    ========================================================================== */
@@ -800,6 +810,30 @@ textarea:focus {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* The blinking block cursor */
+.typing-cursor::after {
+  content: "█";
+  animation: blink 1s step-end infinite;
+  margin-left: 5px;
+  color: var(--accent); /* Matches your command text color */
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* We will use JS to make the text visible once the animation starts, 
+   so the terminal doesn't look fully populated before scrolling down */
+.terminal-body {
+  min-height: 250px; /* Keeps the terminal window from collapsing when empty */
 }
 
 /* ==========================================================================
