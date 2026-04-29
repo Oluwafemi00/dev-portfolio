@@ -3,64 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Femi Sodiq Oladele — Frontend Engineer Resume</title>
+    <meta name="author" content="Femi Sodiq Oladele" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
 
-    <link
-      rel="preload"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      as="style"
-      onload="
-        this.onload = null;
-        this.rel = 'stylesheet';
-      "
-    />
-    <noscript
-      ><link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    /></noscript>
-
-    <link
-      rel="icon"
-      href="public/asset/image/codersrank-svgrepo-com.svg"
-      type="image/svg+xml"
-    />
-
-    <title>Femi Sodiq Oladele — Frontend Engineer Resume</title>
-    <meta name="title" content="Femi Sodiq Oladele | Frontend Engineer" />
-    <meta
-      name="description"
-      content="Frontend Engineer specializing in React and JavaScript, building responsive, user-friendly web applications with clean UI and real-world functionality."
-    />
-    <meta
-      name="keywords"
-      content="Frontend Engineer, React Developer, JavaScript, UI Developer, Responsive Design, Web Developer, Femi Oladele"
-    />
-    <meta name="author" content="Femi Sodiq Oladele" />
-
-    <meta name="theme-color" content="#050505" />
-
     <style>
-      /* --- Elite Gold & Slate Design System --- */
+      /* =====================================================
+       DESIGN SYSTEM
+       Screen: dark, editorial. Print: clean white ATS-safe.
+    ===================================================== */
       :root {
-        --bg: #050505;
-        --surface: #0c0c0c;
-        --accent: #c5a059; /* Champagne Gold */
-        --text-main: #ffffff;
-        --text-dim: #71717a;
-        --border: rgba(255, 255, 255, 0.08);
-        --font-serif: "Playfair Display", serif;
-        --font-sans: "Inter", sans-serif;
+        --bg: #080808;
+        --surface: #111111;
+        --surface-2: #161616;
+        --accent: #b8966e;
+        --accent-soft: rgba(184, 150, 110, 0.12);
+        --text: #e8e4dc;
+        --text-dim: #7a7670;
+        --text-mid: #a8a49c;
+        --border: rgba(255, 255, 255, 0.07);
+        --border-mid: rgba(255, 255, 255, 0.12);
+        --serif: "Source Serif 4", Georgia, serif;
+        --sans: "IBM Plex Sans", system-ui, sans-serif;
+        --radius: 6px;
       }
 
-      * {
+      *,
+      *::before,
+      *::after {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
@@ -69,105 +45,191 @@
       body {
         background: var(--bg);
         color: var(--text-dim);
-        font-family: var(--font-sans);
-        line-height: 1.6;
+        font-family: var(--sans);
+        font-weight: 300;
+        line-height: 1.65;
         -webkit-font-smoothing: antialiased;
       }
 
-      /* --- App-like Navigation --- */
-      .resume-nav {
-        padding: 2rem 5%;
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: rgba(5, 5, 5, 0.9);
-        backdrop-filter: blur(10px);
+      /* ---- Nav ---- */
+      .site-nav {
         position: sticky;
         top: 0;
-        z-index: 100;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 5%;
+        background: rgba(8, 8, 8, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
       }
-
       .back-link {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
         color: var(--text-dim);
         text-decoration: none;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        transition: 0.3s;
+        transition: color 0.2s;
       }
       .back-link:hover {
         color: var(--accent);
       }
 
-      /* --- Layout Grid --- */
-      main {
-        max-width: 1000px;
-        margin: 4rem auto;
+      .btn-download {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.6rem 1.4rem;
+        background: var(--accent);
+        color: #0a0a0a;
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        border: none;
+        border-radius: 100px;
+        cursor: pointer;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+      }
+      .btn-download:hover {
+        opacity: 0.88;
+        transform: translateY(-1px);
+      }
+
+      /* ---- Document canvas ---- */
+      .resume-canvas {
+        max-width: 820px;
+        margin: 3rem auto 5rem;
         padding: 0 2rem;
       }
 
-      /* --- Header Section --- */
-      header {
-        margin-bottom: 4rem;
-        border-bottom: 1px solid var(--border);
-        padding-bottom: 3rem;
+      /* ---- Header ---- */
+      .resume-header {
+        padding-bottom: 2.5rem;
+        margin-bottom: 2.5rem;
+        border-bottom: 1px solid var(--border-mid);
       }
-      header h1 {
-        font-family: var(--font-serif);
-        font-size: 3.5rem;
-        color: var(--text-main);
-        line-height: 1.1;
-        margin-bottom: 0.5rem;
+
+      .resume-header h1 {
+        font-family: var(--serif);
+        font-size: clamp(2.4rem, 6vw, 3.6rem);
+        font-weight: 700;
+        color: var(--text);
+        line-height: 1.05;
+        letter-spacing: -0.01em;
+        margin-bottom: 0.35rem;
       }
-      header .title {
-        color: var(--accent);
+
+      .resume-header .headline {
+        font-size: 0.78rem;
+        font-weight: 500;
         text-transform: uppercase;
-        letter-spacing: 4px;
-        font-size: 0.8rem;
-        display: block;
-        margin-bottom: 1.5rem;
+        letter-spacing: 0.18em;
+        color: var(--accent);
+        margin-bottom: 1.6rem;
       }
 
-      .contact-grid {
+      .contact-row {
         display: flex;
-        gap: 2rem;
         flex-wrap: wrap;
-        font-size: 0.9rem;
+        gap: 0.5rem 1.5rem;
+        font-size: 0.85rem;
+        color: var(--text-mid);
       }
-      .contact-grid a {
-        color: var(--text-dim);
+      .contact-row a {
+        color: var(--text-mid);
         text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        transition: 0.3s;
+        transition: color 0.2s;
       }
-      .contact-grid a:hover {
+      .contact-row a:hover {
         color: var(--accent);
       }
+      .contact-sep {
+        color: var(--border-mid);
+      }
 
-      /* --- Two-Column Resume Sections --- */
+      /* ---- Section wrapper ---- */
       .resume-section {
-        display: grid;
-        grid-template-columns: 250px 1fr;
-        gap: 2rem;
-        margin-bottom: 3rem;
-        padding-bottom: 3rem;
+        margin-bottom: 2.8rem;
+        padding-bottom: 2.8rem;
         border-bottom: 1px dashed var(--border);
       }
       .resume-section:last-child {
         border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
       }
 
-      h2 {
-        font-family: var(--font-serif);
-        font-size: 1.8rem;
-        color: var(--text-main);
-        font-weight: 400;
+      .section-label {
+        font-family: var(--serif);
+        font-size: 1.35rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 1.4rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--accent-soft);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-label::before {
+        content: "";
+        display: inline-block;
+        width: 3px;
+        height: 1.1em;
+        background: var(--accent);
+        border-radius: 2px;
+        flex-shrink: 0;
       }
 
-      /* --- Items (Experience/Projects) --- */
+      /* ---- Summary ---- */
+      .summary-text {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        color: var(--text-mid);
+        max-width: 68ch;
+      }
+
+      /* ---- Skills ---- */
+      .skills-block {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .skill-row {
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        gap: 1rem;
+        align-items: start;
+      }
+      .skill-category {
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-dim);
+        padding-top: 4px;
+      }
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .skill-tag {
+        font-size: 0.78rem;
+        font-family: "IBM Plex Mono", monospace;
+        color: var(--text-mid);
+        background: var(--surface-2);
+        border: 1px solid var(--border-mid);
+        border-radius: 4px;
+        padding: 3px 10px;
+      }
+
+      /* ---- Experience / Project items ---- */
       .item {
         margin-bottom: 2rem;
       }
@@ -179,568 +241,642 @@
         display: flex;
         justify-content: space-between;
         align-items: baseline;
-        margin-bottom: 0.5rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-        padding-bottom: 0.5rem;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-bottom: 0.2rem;
       }
-      .item-header h3 {
-        color: var(--text-main);
-        font-size: 1.1rem;
+      .item-title {
+        font-size: 1rem;
         font-weight: 600;
+        color: var(--text);
+        letter-spacing: -0.01em;
       }
-      .date-badge {
-        font-family: monospace;
-        font-size: 0.8rem;
+      .item-date {
+        font-size: 0.75rem;
+        font-family: "IBM Plex Mono", monospace;
         color: var(--accent);
-        background: rgba(197, 160, 89, 0.05);
+        background: var(--accent-soft);
         padding: 2px 8px;
         border-radius: 4px;
+        white-space: nowrap;
       }
-
-      .item-role {
+      .item-subtitle {
+        font-size: 0.82rem;
+        font-weight: 500;
         color: var(--accent);
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 0.08em;
+        margin-bottom: 0.75rem;
       }
-
-      ul {
-        margin: 10px 0 0 20px;
+      .item-tech {
+        font-size: 0.78rem;
         color: var(--text-dim);
-      }
-      ul li {
-        margin-bottom: 8px;
-        padding-left: 5px;
-      }
-      ul li::marker {
-        color: var(--accent);
+        margin-bottom: 0.75rem;
+        font-style: italic;
       }
 
-      /* --- Tech Skills Tags --- */
-      .skills-group {
-        margin-bottom: 1.5rem;
-      }
-      .skills-group strong {
-        display: block;
-        color: var(--text-main);
-        margin-bottom: 0.5rem;
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-      .tags {
+      .item-bullets {
+        list-style: none;
+        padding: 0;
         display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
+        flex-direction: column;
+        gap: 6px;
       }
-      .tag {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid var(--border);
+      .item-bullets li {
+        font-size: 0.88rem;
+        color: var(--text-mid);
+        line-height: 1.65;
+        padding-left: 1.1rem;
+        position: relative;
+      }
+      .item-bullets li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-size: 0.65rem;
+        top: 0.22em;
+      }
+
+      .item-note {
+        font-size: 0.88rem;
+        color: var(--text-mid);
+        line-height: 1.7;
+        margin-top: 0.5rem;
+      }
+
+      /* ---- Education ---- */
+      .coursework {
+        font-size: 0.84rem;
         color: var(--text-dim);
-        padding: 4px 12px;
-        border-radius: 100px;
-        font-size: 0.8rem;
-        font-family: monospace;
+        margin-top: 0.5rem;
+      }
+      .coursework strong {
+        color: var(--text-mid);
+        font-weight: 500;
       }
 
-      /* --- Download Button --- */
-      .btn-premium {
-        background: var(--accent);
-        color: #000;
-        padding: 0.8rem 2rem;
-        border-radius: 100px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 0.75rem;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        transition: 0.3s;
-        margin-top: 1rem;
-        font-weight: 600;
-      }
-      .btn-premium:hover {
-        box-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
-        transform: translateY(-2px);
-      }
-
-      /* --- Responsive --- */
-      @media (max-width: 768px) {
-        .resume-section {
-          grid-template-columns: 1fr;
-          gap: 1rem;
-        }
-        header h1 {
-          font-size: 2.5rem;
-        }
-        .item-header {
-          flex-direction: column;
-          gap: 5px;
-        }
-      }
-
-      /* --- PRINT OPTIMIZATION --- */
+      /* =====================================================
+       PRINT / ATS STYLESHEET
+       Overrides everything above for clean, parseable output.
+       Single column, black text, white bg, standard fonts.
+    ===================================================== */
       @media print {
         @page {
-          margin: 1.5cm;
+          size: A4;
+          margin: 1.6cm 1.8cm;
         }
+
+        * {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
         body {
-          background: #ffffff !important;
-          color: #333333 !important;
-          font-size: 11pt;
+          background: #fff !important;
+          color: #1a1a1a !important;
+          font-family: "IBM Plex Sans", Arial, sans-serif !important;
+          font-size: 10.5pt;
+          line-height: 1.55;
         }
-        .resume-nav,
-        .btn-premium {
+
+        .site-nav {
           display: none !important;
         }
 
-        main {
+        .resume-canvas {
+          max-width: 100%;
           margin: 0;
           padding: 0;
-          max-width: 100%;
         }
-        header {
-          border-bottom: 2px solid #000;
-          padding-bottom: 1.5rem;
-          margin-bottom: 2rem;
+
+        /* Header */
+        .resume-header {
+          border-bottom: 1.5pt solid #1a1a1a !important;
+          padding-bottom: 10pt;
+          margin-bottom: 12pt;
         }
-        header h1 {
-          color: #000 !important;
-          font-size: 28pt;
+        .resume-header h1 {
+          font-family: "Source Serif 4", Georgia, serif !important;
+          font-size: 22pt !important;
+          color: #0a0a0a !important;
+          margin-bottom: 2pt;
         }
-        .title {
-          color: #555 !important;
+        .resume-header .headline {
+          font-size: 8pt !important;
+          color: #444 !important;
+          letter-spacing: 0.12em;
+          margin-bottom: 8pt;
         }
-        .contact-grid a {
+        .contact-row {
+          font-size: 8.5pt !important;
+          color: #333 !important;
+          gap: 0.3rem 1rem;
+        }
+        .contact-row a {
           color: #333 !important;
         }
+        .contact-sep {
+          color: #bbb !important;
+        }
 
+        /* Sections */
         .resume-section {
-          grid-template-columns: 200px 1fr;
-          border-bottom: 1px solid #eeeeee;
-          padding-bottom: 2rem;
-          margin-bottom: 2rem;
+          margin-bottom: 12pt;
+          padding-bottom: 12pt;
+          border-bottom: 0.5pt solid #ddd !important;
           page-break-inside: avoid;
         }
-        h2 {
-          color: #000 !important;
-          font-size: 14pt;
+        .resume-section:last-child {
+          border-bottom: none !important;
         }
 
-        .item-header h3 {
-          color: #000 !important;
+        .section-label {
+          font-family: "Source Serif 4", Georgia, serif !important;
+          font-size: 11.5pt !important;
+          color: #0a0a0a !important;
+          border-bottom: 0.75pt solid #999 !important;
+          margin-bottom: 8pt;
+          padding-bottom: 3pt;
+          gap: 6px;
         }
-        .item-role,
-        .date-badge {
+        .section-label::before {
+          background: #333 !important;
+          width: 2.5px;
+          height: 0.9em;
+        }
+
+        .summary-text {
+          font-size: 9.5pt !important;
+          color: #222 !important;
+          max-width: 100%;
+        }
+
+        /* Skills */
+        .skill-row {
+          grid-template-columns: 130px 1fr;
+          gap: 0.5rem;
+        }
+        .skill-category {
+          font-size: 7.5pt !important;
           color: #555 !important;
-          font-weight: bold;
-          background: transparent;
-          padding: 0;
         }
-        ul li::marker {
-          color: #000;
+        .skill-tag {
+          font-size: 7.5pt !important;
+          color: #1a1a1a !important;
+          background: #f4f4f4 !important;
+          border-color: #ccc !important;
+          padding: 1px 7px;
         }
 
-        .tag {
-          border: 1px solid #ccc;
-          color: #333;
+        /* Items */
+        .item {
+          margin-bottom: 10pt;
+          page-break-inside: avoid;
+        }
+        .item-title {
+          font-size: 10pt !important;
+          color: #0a0a0a !important;
+        }
+        .item-date {
+          font-size: 8pt !important;
+          color: #333 !important;
+          background: transparent !important;
+          padding: 0 !important;
+        }
+        .item-subtitle {
+          font-size: 8pt !important;
+          color: #444 !important;
+          margin-bottom: 4pt;
+        }
+        .item-tech {
+          font-size: 8pt !important;
+          color: #555 !important;
+        }
+        .item-bullets li {
+          font-size: 9pt !important;
+          color: #1a1a1a !important;
+          margin-bottom: 2pt;
+        }
+        .item-bullets li::before {
+          color: #333 !important;
+        }
+        .item-note {
+          font-size: 9pt !important;
+          color: #222 !important;
+        }
+        .coursework {
+          font-size: 8.5pt !important;
+          color: #333 !important;
+        }
+      }
+
+      /* ---- Responsive ---- */
+      @media (max-width: 600px) {
+        .skill-row {
+          grid-template-columns: 1fr;
+          gap: 0.4rem;
+        }
+        .item-header {
+          flex-direction: column;
         }
       }
     </style>
   </head>
-
   <body>
-    <header class="resume-nav">
-      <a href="index.html" class="back-link"
-        ><i class="fas fa-arrow-left"></i> Return to Studio</a
+    <!-- NAV -->
+    <nav class="site-nav" aria-label="Resume navigation">
+      <a href="index.html" class="back-link">← Back to Portfolio</a>
+      <button
+        class="btn-download"
+        id="download-btn"
+        aria-label="Download resume as PDF"
       >
-      <button id="download-pdf-btn" class="btn-premium">
-        <i class="fas fa-download"></i> Download PDF
+        ↓ Download PDF
       </button>
-    </header>
+    </nav>
 
-    <main>
-      <header>
+    <!-- RESUME DOCUMENT -->
+    <main class="resume-canvas" id="resume">
+      <!-- ══ HEADER ══ -->
+      <header class="resume-header">
         <h1>Femi Sodiq Oladele</h1>
-        <span class="title"
-          >Frontend Engineer | React • JavaScript • Responsive UI</span
-        >
-
-        <div class="contact-grid">
+        <p class="headline">
+          Frontend Engineer · React · JavaScript · Progressive Web Apps
+        </p>
+        <address class="contact-row" style="font-style: normal">
           <a href="mailto:oladelesodiq4568@gmail.com"
-            ><i class="fas fa-envelope"></i> oladelesodiq4568@gmail.com</a
+            >oladelesodiq4568@gmail.com</a
           >
-          <a href="tel:+2348130732551"
-            ><i class="fas fa-phone"></i> +234 813 073 2551</a
-          >
+          <span class="contact-sep">·</span>
+          <a href="tel:+2348130732551">+234 813 073 2551</a>
+          <span class="contact-sep">·</span>
           <a href="https://oluwafemi00.github.io/dev-portfolio/" target="_blank"
-            ><i class="fas fa-globe"></i> Developer Portfolio</a
+            >Portfolio</a
           >
+          <span class="contact-sep">·</span>
           <a href="https://github.com/oluwafemi00" target="_blank"
-            ><i class="fab fa-github"></i> github.com/oluwafemi00</a
+            >github.com/oluwafemi00</a
           >
-        </div>
+          <span class="contact-sep">·</span>
+          <span>Nigeria (Open to Remote)</span>
+        </address>
       </header>
 
-      <section class="resume-section">
-        <h2>Professional Summary</h2>
-        <div>
-          <p>
-            Frontend Engineer specializing in building responsive and
-            user-friendly web applications using React and JavaScript.
-            Experienced in developing clean interfaces, integrating APIs, and
-            delivering smooth user experiences. Built real-world projects
-            including CS Pathfinder, a full-stack academic platform with
-            structured APIs and relational database design. Strong understanding
-            of backend systems to support efficient frontend integration.
+      <!-- ══ SUMMARY ══ -->
+      <section class="resume-section" aria-labelledby="summary-heading">
+        <h2 class="section-label" id="summary-heading">Professional Summary</h2>
+        <p class="summary-text">
+          Frontend Engineer specializing in React and JavaScript, with hands-on
+          experience building performant, offline-first Progressive Web Apps
+          using browser-native APIs including IndexedDB, Service Workers, and
+          the Web Audio API — without framework overhead. Proven ability to lead
+          frontend teams, integrate REST APIs, and deliver clean, accessible
+          user interfaces. Currently pursuing a BSc in Computer Science at the
+          University of Ilorin. Open to junior frontend roles, internships, and
+          remote opportunities worldwide.
+        </p>
+      </section>
+
+      <!-- ══ SKILLS ══ -->
+      <section class="resume-section" aria-labelledby="skills-heading">
+        <h2 class="section-label" id="skills-heading">Technical Skills</h2>
+        <div class="skills-block">
+          <div class="skill-row">
+            <span class="skill-category">Languages</span>
+            <div class="skill-tags">
+              <span class="skill-tag">JavaScript (ES6+)</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">CSS3</span>
+            </div>
+          </div>
+
+          <div class="skill-row">
+            <span class="skill-category">Frontend</span>
+            <div class="skill-tags">
+              <span class="skill-tag">React.js</span>
+              <span class="skill-tag">Responsive Design</span>
+              <span class="skill-tag">Progressive Web Apps</span>
+              <span class="skill-tag">REST API Integration</span>
+              <span class="skill-tag">Tailwind CSS</span>
+              <span class="skill-tag">Bootstrap</span>
+              <span class="skill-tag">DOM Manipulation</span>
+              <span class="skill-tag">Async/Await</span>
+            </div>
+          </div>
+
+          <div class="skill-row">
+            <span class="skill-category">Browser APIs</span>
+            <div class="skill-tags">
+              <span class="skill-tag">IndexedDB</span>
+              <span class="skill-tag">Service Workers</span>
+              <span class="skill-tag">Web App Manifest</span>
+              <span class="skill-tag">Web Audio API</span>
+              <span class="skill-tag">Geolocation API</span>
+            </div>
+          </div>
+
+          <div class="skill-row">
+            <span class="skill-category">Backend & Tools</span>
+            <div class="skill-tags">
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Express.js</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">Git & GitHub</span>
+              <span class="skill-tag">Postman</span>
+              <span class="skill-tag">Supabase</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ EXPERIENCE ══ -->
+      <section class="resume-section" aria-labelledby="experience-heading">
+        <h2 class="section-label" id="experience-heading">Experience</h2>
+
+        <article class="item">
+          <div class="item-header">
+            <span class="item-title">Frontend Engineer Intern — Team Lead</span>
+            <span class="item-date">2025 – 2026</span>
+          </div>
+          <p class="item-subtitle">Tracheid HLX Edtech Solution</p>
+          <ul class="item-bullets">
+            <li>
+              Led a team of frontend developers in building SwiftCart, a
+              responsive e-commerce web application, coordinating task
+              assignment and enforcing consistent UI implementation across all
+              pages.
+            </li>
+            <li>
+              Architected the frontend using semantic HTML, CSS, and Vanilla
+              JavaScript — deliberately avoiding frameworks to deepen the team's
+              understanding of core web fundamentals.
+            </li>
+            <li>
+              Made key technical decisions on code structure and component
+              organisation, improving team code quality and reducing review
+              cycles.
+            </li>
+            <li>
+              Reviewed and improved teammates' UI components to ensure alignment
+              with design goals and responsive behaviour across breakpoints.
+            </li>
+            <li>
+              Strengthened team velocity by matching tasks to individual
+              strengths and maintaining active hands-on involvement throughout
+              the development lifecycle.
+            </li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <div class="item-header">
+            <span class="item-title">Frontend Engineer</span>
+            <span class="item-date">2025 – Present</span>
+          </div>
+          <p class="item-subtitle">Independent / Self-directed</p>
+          <ul class="item-bullets">
+            <li>
+              Designed and shipped multiple production-grade web applications
+              using React and Vanilla JavaScript, focusing on performance, clean
+              UI, and real user value.
+            </li>
+            <li>
+              Integrated REST APIs with async/await patterns, implementing
+              robust error handling, loading states, and dynamic data
+              transformation.
+            </li>
+            <li>
+              Built browser-native PWAs using IndexedDB, Service Workers, and
+              Web App Manifest — delivering full offline functionality without
+              backend dependencies.
+            </li>
+            <li>
+              Engineered reusable component patterns and centralised state
+              management in framework-free JavaScript to ensure maintainability
+              and scalability.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- ══ PROJECTS ══ -->
+      <section class="resume-section" aria-labelledby="projects-heading">
+        <h2 class="section-label" id="projects-heading">Projects</h2>
+
+        <article class="item">
+          <div class="item-header">
+            <span class="item-title">Smart Pomodoro Tasker</span>
+          </div>
+          <p class="item-tech">
+            Vanilla JavaScript (ES6+) · IndexedDB API · Service Workers · Web
+            Audio API · Web App Manifest
           </p>
-        </div>
-      </section>
+          <ul class="item-bullets">
+            <li>
+              Engineered a full-featured productivity PWA with zero framework
+              dependencies, using IndexedDB for persistent storage that survives
+              browser restarts and page refreshes.
+            </li>
+            <li>
+              Built an automated focus → modal prompt → break → next session
+              workflow with audio notifications via the Web Audio API and
+              customisable per-task session targeting.
+            </li>
+            <li>
+              Implemented a built-in PWA install prompt, offline caching via
+              Service Workers, and a Web App Manifest for native-like desktop
+              and mobile installation.
+            </li>
+            <li>
+              Delivered dynamic UI with real-time session crossout updates,
+              visual mode switching (Focus/Break), and custom modal popups
+              replacing native browser alerts.
+            </li>
+          </ul>
+        </article>
 
-      <section class="resume-section">
-        <h2>Technical Arsenal</h2>
-        <div>
-          <div class="skills-group">
-            <strong>Core Languages</strong>
-            <div class="tags">
-              <span class="tag">JavaScript (ES6+)</span>
-              <span class="tag">SQL</span>
-              <span class="tag">Java</span>
-            </div>
+        <article class="item">
+          <div class="item-header">
+            <span class="item-title">Study Planner Pro</span>
           </div>
+          <p class="item-tech">
+            HTML5 · CSS3 · Vanilla JavaScript · Service Workers · Web App
+            Manifest
+          </p>
+          <ul class="item-bullets">
+            <li>
+              Developed an installable PWA combining task management and
+              Pomodoro focus sessions, fully offline-capable with localStorage
+              persistence.
+            </li>
+            <li>
+              Implemented drag-and-drop task reordering, priority auto-sorting,
+              real-time search and filter, and centralised state management
+              without any library dependencies.
+            </li>
+            <li>
+              Shipped a distraction-free, responsive UI installable on any
+              device — foundation project that directly informed the more
+              advanced Smart Pomodoro Tasker.
+            </li>
+          </ul>
+        </article>
 
-          <div class="skills-group">
-            <strong>Frontend Development</strong>
-            <div class="tags">
-              <span class="tag">React.js</span>
-              <span class="tag">HTML5 / CSS3</span>
-              <span class="tag">Tailwind CSS</span>
-              <span class="tag">Bootstrap CSS</span>
-              <span class="tag">Responsive Design</span>
-              <span class="tag">API Integration</span>
-            </div>
+        <article class="item">
+          <div class="item-header">
+            <span class="item-title">CS Pathfinder</span>
           </div>
+          <p class="item-tech">
+            Node.js · Express.js · PostgreSQL (Supabase) · React.js · JavaScript
+          </p>
+          <ul class="item-bullets">
+            <li>
+              Designed and implemented relational database schemas with
+              optimised table relationships and indexing for a structured CS
+              academic resource platform.
+            </li>
+            <li>
+              Built CRUD REST API endpoints with Express.js and advanced
+              filtering for organised academic data retrieval.
+            </li>
+            <li>
+              Applied modular backend architecture and centralised error
+              handling to ensure maintainable, scalable server-side logic.
+            </li>
+          </ul>
+        </article>
 
-          <div class="skills-group">
-            <strong>Backend & Tools</strong>
-            <div class="tags">
-              <span class="tag">Node.js</span>
-              <span class="tag">Express.js</span>
-              <span class="tag">PostgreSQL</span>
-              <span class="tag">MongoDB</span>
-              <span class="tag">REST APIs</span>
-              <span class="tag">Git / GitHub</span>
-              <span class="tag">Postman</span>
-            </div>
+        <article class="item">
+          <div class="item-header">
+            <span class="item-title">SkyCast — Weather Dashboard</span>
           </div>
-        </div>
+          <p class="item-tech">
+            HTML5 · CSS3 · Vanilla JavaScript · OpenWeatherMap REST API ·
+            Geolocation API
+          </p>
+          <ul class="item-bullets">
+            <li>
+              Fetched real-time weather data and 5-day forecasts using the
+              OpenWeatherMap API and HTML5 Geolocation, with dynamic °C/°F unit
+              toggling.
+            </li>
+            <li>
+              Implemented asynchronous data handling with async/await,
+              structured try/catch error management, and responsive loading
+              states.
+            </li>
+            <li>
+              Processed and transformed complex JSON datasets (40+ data points)
+              to generate clean daily forecast summaries without any external
+              libraries.
+            </li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <div class="item-header">
+            <span class="item-title">Student Result Management System</span>
+          </div>
+          <p class="item-tech">HTML5 · CSS3 · Vanilla JavaScript</p>
+          <ul class="item-bullets">
+            <li>
+              Built a data-driven academic performance app with dynamic grade
+              calculation, strict input validation, and localStorage
+              persistence.
+            </li>
+            <li>
+              Developed real-time analytics dashboards, bidirectional table
+              sorting, live search and filter, and one-click CSV export
+              functionality.
+            </li>
+            <li>
+              Engineered entirely in Vanilla JavaScript using DOM manipulation,
+              array methods, and structured state management — zero
+              dependencies.
+            </li>
+          </ul>
+        </article>
       </section>
 
-      <section class="resume-section">
-        <h2>Experience</h2>
-        <div>
-          <article class="item">
-            <div class="item-header">
-              <h3>Frontend Engineer</h3>
-              <span class="date-badge">2025 – Present</span>
-            </div>
-
-            <div class="item-role">Independent / Self-directed</div>
-
-            <ul>
-              <li>
-                Built responsive web applications using React and JavaScript
-                with a focus on clean UI and smooth user interactions.
-              </li>
-
-              <li>
-                Integrated REST APIs into frontend applications to deliver
-                dynamic and real-time user experiences.
-              </li>
-
-              <li>
-                Developed reusable components and structured codebases for
-                maintainability and scalability.
-              </li>
-
-              <li>
-                Optimized performance and responsiveness across devices through
-                efficient rendering and design practices.
-              </li>
-            </ul>
-          </article>
-
-          <article class="item">
-            <div class="item-header">
-              <h3>Frontend Engineer Intern (Team Lead)</h3>
-              <span class="date-badge">2025 – 2026</span>
-            </div>
-
-            <div class="item-role">Tracheid HLX Edtech Solution</div>
-
-            <ul>
-              <li>
-                Led a team of frontend developers in building "SwiftCart", a web
-                application, coordinating development tasks and ensuring
-                consistent UI implementation.
-              </li>
-              <li>
-                Designed and refined user interfaces using core HTML, CSS, and
-                JavaScript, focusing on clean layout, responsiveness, and
-                usability without relying on frameworks.
-              </li>
-              <li>
-                Made key technical decisions to enforce strong frontend
-                fundamentals, improving team understanding of core web
-                technologies and code quality.
-              </li>
-              <li>
-                Collaborated closely with team members by reviewing and
-                improving assigned UI components, ensuring alignment with design
-                and user experience goals.
-              </li>
-              <li>
-                Strengthened team productivity by aligning tasks with individual
-                strengths and maintaining active involvement throughout the
-                development process.
-              </li>
-            </ul>
-          </article>
-        </div>
+      <!-- ══ EDUCATION ══ -->
+      <section class="resume-section" aria-labelledby="education-heading">
+        <h2 class="section-label" id="education-heading">Education</h2>
+        <article class="item">
+          <div class="item-header">
+            <span class="item-title">BSc Computer Science</span>
+            <span class="item-date">2023 – 2027</span>
+          </div>
+          <p class="item-subtitle">University of Ilorin, Nigeria</p>
+          <p class="coursework">
+            <strong>Relevant coursework:</strong>
+            Data Structures and Algorithms, Database Management Systems,
+            Operating Systems, Software Engineering, Automata Theory,
+            Object-Oriented Programming.
+          </p>
+        </article>
       </section>
 
-      <section class="resume-section">
-        <h2>Selected Projects</h2>
-        <div>
-          <!-- 1. SwiftCart -->
-          <article class="item">
-            <div class="item-header">
-              <h3>SwiftCart</h3>
-            </div>
-            <div class="item-role">
-              Frontend-Focused E-Commerce Platform | HTML, CSS, JavaScript
-            </div>
-            <ul>
-              <li>
-                Led a team of frontend developers to design and build a
-                responsive e-commerce interface, ensuring consistent UI across
-                all pages and user flows.
-              </li>
-              <li>
-                Developed core user interfaces using vanilla HTML, CSS, and
-                JavaScript, focusing on clean layout, usability, and responsive
-                design without relying on frameworks.
-              </li>
-              <li>
-                Implemented dynamic features such as product listing, cart
-                interactions, and state updates using structured JavaScript
-                logic.
-              </li>
-              <li>
-                Enforced strong frontend fundamentals across the team, improving
-                code quality and deepening understanding of core web
-                technologies.
-              </li>
-              <!-- <li>
-                Collaborated on backend integration to ensure smooth data flow
-                between UI components and server-side logic.
-              </li> -->
-            </ul>
-          </article>
+      <!-- ══ LEADERSHIP ══ -->
+      <section class="resume-section" aria-labelledby="leadership-heading">
+        <h2 class="section-label" id="leadership-heading">
+          Leadership & Activities
+        </h2>
 
-          <!-- 2. CS Pathfinder -->
-          <article class="item">
-            <div class="item-header">
-              <h3>CS Pathfinder</h3>
-            </div>
-            <div class="item-role">
-              Full-Stack Academic Resource Platform | Node.js, Express,
-              PostgreSQL(Supabase), JavaScript
-            </div>
-            <ul>
-              <li>
-                Designed relational database schemas with optimized table
-                relationships and indexing.
-              </li>
-              <li>
-                Implemented CRUD operations with advanced filtering features for
-                structured academic data management.
-              </li>
-              <li>
-                Applied modular architecture and centralized state control to
-                ensure maintainable backend logic.
-              </li>
-            </ul>
-          </article>
+        <article class="item">
+          <div class="item-header">
+            <span class="item-title"
+              >Founder — StudySync Student Tutoring Initiative</span
+            >
+            <span class="item-date">2025 – Present</span>
+          </div>
+          <p class="item-note">
+            Organised and led peer tutoring sessions to help junior students
+            strengthen academic performance in core Computer Science subjects.
+          </p>
+        </article>
 
-          <!-- 3. SkyCast – Weather Dashboard -->
-          <article class="item">
-            <div class="item-header">
-              <h3>SkyCast – Weather Dashboard</h3>
-            </div>
-            <div class="item-role">
-              Real-Time Weather Web Application | HTML5, CSS3, Vanilla
-              JavaScript, REST APIs
-            </div>
-            <ul>
-              <li>
-                Fetched real-time weather data using OpenWeatherMap API and
-                HTML5 Geolocation, with dynamic unit toggling.
-              </li>
-              <li>
-                Implemented asynchronous data handling with async/await,
-                try/catch error management, and loading states.
-              </li>
-              <li>
-                Processed complex JSON datasets (40+ points) to generate clean
-                daily forecasts, demonstrating advanced state management.
-              </li>
-            </ul>
-          </article>
+        <article class="item">
+          <div class="item-header">
+            <span class="item-title"
+              >Member — Student Representative Council (SRC)</span
+            >
+            <span class="item-date">2025 – Present</span>
+          </div>
+          <p class="item-note">
+            Contributed to student governance and represented peers in academic
+            and campus matters.
+          </p>
+        </article>
 
-          <!-- 4. Student Result Management System -->
-          <article class="item">
-            <div class="item-header">
-              <h3>Student Result Management System</h3>
-            </div>
-            <div class="item-role">
-              Academic Performance Tracking Web App | HTML5, CSS3, Vanilla
-              JavaScript
-            </div>
-            <ul>
-              <li>
-                Managed dynamic grade calculation, strict data validation, and
-                persistent storage via localStorage.
-              </li>
-              <li>
-                Developed real-time analytics dashboards, bidirectional table
-                sorting, live search/filter, and CSV export.
-              </li>
-              <li>
-                Engineered the system entirely in Vanilla JS using DOM
-                manipulation, array methods, and structured state management.
-              </li>
-            </ul>
-          </article>
-
-          <!-- Honorable Mention: Study Planner Pro -->
-          <article class="item">
-            <div class="item-header">
-              <h3>Study Planner Pro</h3>
-            </div>
-            <div class="item-role">
-              Progressive Web App (PWA) | HTML5, CSS3, Vanilla JavaScript
-            </div>
-            <ul>
-              <li>
-                Developed an installable PWA with offline support, localStorage
-                persistence, and centralized task state management.
-              </li>
-              <li>
-                Implemented drag-and-drop task reordering, priority sorting, and
-                Pomodoro timer for structured study sessions.
-              </li>
-              <li>
-                Architected theme switching and print-ready schedules while
-                maintaining framework-free JavaScript mastery.
-              </li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="resume-section">
-        <h2>Education</h2>
-        <div>
-          <article class="item">
-            <div class="item-header">
-              <h3>BSc Computer Science</h3>
-              <span class="date-badge">2023 – 2027</span>
-            </div>
-
-            <div class="item-role">University of Ilorin</div>
-
-            <p style="margin-top: 10px; color: var(--text-dim)">
-              <strong>Key Coursework:</strong>
-              Data Structures and Algorithms, Database Management Systems,
-              Operating Systems, Software Engineering, Automata Theory.
-            </p>
-          </article>
-        </div>
-      </section>
-      <section class="resume-section">
-        <h2>Leadership & Activities</h2>
-        <div>
-          <article class="item">
-            <div class="item-header">
-              <h3>Founder</h3>
-              <span class="date-badge">2025 – Present</span>
-            </div>
-            <div class="item-role">StudySync Student Tutoring Initiative</div>
-            <p style="margin-top: 10px; color: var(--text-dim)">
-              Organized and led tutoring sessions to help junior students
-              improve academically.
-            </p>
-          </article>
-
-          <!-- <article class="item">
-            <div class="item-header">
-              <h3>Member</h3>
-              <span class="date-badge">2023 – Present</span>
-            </div>
-            <div class="item-role">Faculty Debate & Quiz Club</div>
-            <p style="margin-top: 10px; color: var(--text-dim)">
-              Actively participated in debates and quiz competitions
-              representing the faculty.
-            </p>
-          </article> -->
-
-          <article class="item">
-            <div class="item-header">
-              <h3>Faculty Representative</h3>
-              <span class="date-badge">2023 – 2025</span>
-            </div>
-            <div class="item-role">Interfaculty Debate Competition</div>
-            <p style="margin-top: 10px; color: var(--text-dim)">
-              Represented the faculty in organizing and participating in debate
-              competitions.
-            </p>
-          </article>
-
-          <article class="item">
-            <div class="item-header">
-              <h3>Member</h3>
-              <span class="date-badge">2025 – Present</span>
-            </div>
-            <div class="item-role">Student Representative Council (SRC)</div>
-            <p style="margin-top: 10px; color: var(--text-dim)">
-              Contributed to student governance and represented peers in
-              academic and campus matters.
-            </p>
-          </article>
-        </div>
+        <article class="item">
+          <div class="item-header">
+            <span class="item-title"
+              >Faculty Representative — Interfaculty Debate Competition</span
+            >
+            <span class="item-date">2023 – 2025</span>
+          </div>
+          <p class="item-note">
+            Represented the faculty in organising and competing in interfaculty
+            debate competitions.
+          </p>
+        </article>
       </section>
     </main>
-    <script defer>
-      // Elite Native PDF Generation
-      document
-        .getElementById("download-pdf-btn")
-        .addEventListener("click", () => {
-          // 1. Optional: Temporarily change the document title so the saved PDF has a clean filename
-          const originalTitle = document.title;
-          document.title = "Femi_Sodiq_Oladele_Software_Engineer_Resume";
 
-          // 2. Trigger the browser's native print dialogue
-          // (@media print CSS will automatically format it perfectly for A4/Letter size)
-          window.print();
-
-          // 3. Restore the original website title after the print dialogue closes
-          setTimeout(() => {
-            document.title = originalTitle;
-          }, 1000);
-        });
+    <script>
+      document.getElementById("download-btn").addEventListener("click", () => {
+        const original = document.title;
+        document.title = "Femi_Sodiq_Oladele_Frontend_Engineer_Resume";
+        window.print();
+        setTimeout(() => {
+          document.title = original;
+        }, 1200);
+      });
     </script>
   </body>
 </html>
