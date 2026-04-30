@@ -1,132 +1,180 @@
 // ==========================================
-// 1. CRITICAL UI (Runs Immediately)
+// 1. CUSTOM CURSOR — Runs immediately
 // ==========================================
-// Keep the cursor logic outside the load event so it feels instantly responsive.
 const dot = document.querySelector(".cursor-dot");
 const outline = document.querySelector(".cursor-outline");
 
-// Let CSS handle hiding the cursor on mobile (@media pointer: coarse)
 window.addEventListener("mousemove", (e) => {
   if (!dot || !outline) return;
   const { clientX: x, clientY: y } = e;
   dot.style.transform = `translate(${x}px, ${y}px)`;
   outline.animate(
     { transform: `translate(${x}px, ${y}px)` },
-    { duration: 400, fill: "forwards" },
+    { duration: 380, fill: "forwards" },
   );
 });
 
+// Cursor scale on hoverable elements
+document
+  .querySelectorAll("a, button, .bento-item, .pillar-item, .image-frame")
+  .forEach((el) => {
+    el.addEventListener("mouseenter", () => outline?.classList.add("hovered"));
+    el.addEventListener("mouseleave", () =>
+      outline?.classList.remove("hovered"),
+    );
+  });
+
 // ==========================================
-// 2. NON-CRITICAL SYSTEMS (Deferred to drop TBT)
+// 2. DEFERRED SYSTEMS
 // ==========================================
 window.addEventListener("load", () => {
-  // --- Progress Bar ---
+  // --- Scroll progress bar ---
   const progress = document.querySelector(".progress-bar");
-  window.addEventListener("scroll", () => {
+  const onScroll = () => {
     const scrolled =
       (window.scrollY /
         (document.documentElement.scrollHeight - window.innerHeight)) *
       100;
     if (progress) progress.style.width = `${scrolled}%`;
+
+    // Navbar shrink
+    const navbar = document.querySelector(".navbar");
+    if (navbar) navbar.classList.toggle("scrolled", window.scrollY > 60);
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  // --- Scroll reveal ---
+  // Automatically add .reveal class to key section children
+  const revealTargets = document.querySelectorAll(
+    ".bento-item, .pillar-item, .api-doc-card, .terminal-premium, .access-vault, #contact-form",
+  );
+
+  revealTargets.forEach((el, i) => {
+    el.classList.add("reveal");
+    // Stagger siblings in same parent
+    const siblings = Array.from(el.parentElement.children).filter((c) =>
+      c.classList.contains("reveal"),
+    );
+    const idx = siblings.indexOf(el);
+    if (idx > 0) el.classList.add(`reveal-delay-${Math.min(idx, 4)}`);
   });
 
-  // --- Elite Interaction (Magnetic & Scramble) ---
-  const scrambleText = (el) => {
-    const original = el.innerText;
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+  );
+
+  document
+    .querySelectorAll(".reveal")
+    .forEach((el) => revealObserver.observe(el));
+
+  // --- Text scramble on nav + logo + tags ---
+  const scramble = (el) => {
+    const original = el.dataset.originalText || el.innerText;
+    el.dataset.originalText = original;
     const chars = "X01_#/$%&@";
     let iteration = 0;
-    const interval = setInterval(() => {
+    clearInterval(el._scrambleInterval);
+    el._scrambleInterval = setInterval(() => {
       el.innerText = original
         .split("")
         .map((l, i) =>
           i < iteration ? original[i] : chars[Math.floor(Math.random() * 10)],
         )
         .join("");
-      if (iteration >= original.length) clearInterval(interval);
-      iteration += 1 / 4;
-    }, 30);
+      if (iteration >= original.length) {
+        clearInterval(el._scrambleInterval);
+        el.innerText = original; // Restore cleanly
+      }
+      iteration += 1 / 3;
+    }, 28);
   };
 
-  document.querySelectorAll(".nav-link, .tag, .logo-text").forEach((el) => {
-    el.addEventListener("mouseenter", (e) => scrambleText(e.target));
+  document.querySelectorAll(".nav-link, .logo-text").forEach((el) => {
+    el.addEventListener("mouseenter", () => scramble(el));
   });
 
+  // --- Magnetic buttons ---
   document.querySelectorAll(".magnetic").forEach((el) => {
     el.addEventListener("mousemove", (e) => {
       const r = el.getBoundingClientRect();
-      el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.2}px, ${(e.clientY - r.top - r.height / 2) * 0.4}px)`;
+      const x = (e.clientX - r.left - r.width / 2) * 0.18;
+      const y = (e.clientY - r.top - r.height / 2) * 0.35;
+      el.style.transform = `translate(${x}px, ${y}px)`;
     });
-    el.addEventListener(
-      "mouseleave",
-      () => (el.style.transform = `translate(0, 0)`),
-    );
+    el.addEventListener("mouseleave", () => {
+      el.style.transform = "translate(0, 0)";
+    });
   });
 
-  // --- System Observability & Clocks ---
-  const latencyText = document.getElementById("latency-text");
+  // --- System monitor bars ---
   const cpu = document.getElementById("cpu-bar");
   const mem = document.getElementById("mem-bar");
-
   setInterval(() => {
-    if (latencyText)
-      latencyText.innerText = `${Math.floor(Math.random() * 10) + 18}ms`;
     if (cpu) cpu.style.width = `${Math.floor(Math.random() * 20) + 5}%`;
     if (mem) mem.style.width = `${Math.floor(Math.random() * 15) + 40}%`;
-  }, 3000);
+  }, 3200);
 
+  // --- UTC Clock ---
   const updateClock = () => {
     const now = new Date();
     const h = String(now.getUTCHours()).padStart(2, "0");
     const m = String(now.getUTCMinutes()).padStart(2, "0");
     const s = String(now.getUTCSeconds()).padStart(2, "0");
-    const clockEl = document.getElementById("server-time");
-    if (clockEl) clockEl.innerText = `${h}:${m}:${s}`;
+    const el = document.getElementById("server-time");
+    if (el) el.innerText = `${h}:${m}:${s}`;
   };
   setInterval(updateClock, 1000);
   updateClock();
 
-  // --- Log Stream (Intersection Observer) ---
+  // --- Log stream ---
   const logStream = document.getElementById("log-stream");
   const addLog = (method, path) => {
     if (!logStream) return;
     const entry = document.createElement("div");
     const latency = Math.floor(Math.random() * 40) + 5;
-    const timestamp = new Date().toISOString().split("T")[1].split(".")[0];
+    const ts = new Date().toISOString().split("T")[1].split(".")[0];
     entry.className = `log-entry method-${method.toLowerCase()}`;
-    entry.innerHTML = `[${timestamp}] ${method} ${path} - 200 OK (${latency}ms)`;
+    entry.textContent = `[${ts}] ${method} ${path} — 200 OK (${latency}ms)`;
     logStream.prepend(entry);
-    if (logStream.children.length > 5)
+    if (logStream.children.length > 6)
       logStream.removeChild(logStream.lastChild);
   };
 
   const logObserver = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && entry.target.id) {
-          addLog("GET", `/${entry.target.id}`);
-        }
+      entries.forEach((e) => {
+        if (e.isIntersecting && e.target.id) addLog("GET", `/${e.target.id}`);
       });
     },
     { threshold: 0.5 },
   );
-  document
-    .querySelectorAll("section")
-    .forEach((section) => logObserver.observe(section));
+
+  document.querySelectorAll("section").forEach((s) => logObserver.observe(s));
 
   document.querySelectorAll("button, .nav-link").forEach((el) => {
     el.addEventListener("click", (e) => {
-      const destination = e.target.getAttribute("href") || "action";
-      addLog("POST", `${destination}`);
+      const dest =
+        e.target.getAttribute("href") ||
+        e.target.innerText.toLowerCase().replace(/\s/g, "_");
+      addLog("POST", `/${dest}`);
     });
   });
 
-  // --- God-Tier Form Transmission ---
+  // --- Contact form ---
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {
     contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       const btn = contactForm.querySelector("button");
-      btn.innerText = "ESTABLISHING HANDSHAKE...";
+      btn.textContent = "ESTABLISHING HANDSHAKE...";
       btn.style.opacity = "0.5";
       btn.disabled = true;
 
@@ -146,26 +194,26 @@ window.addEventListener("load", () => {
                 <p class="status">● DATA_TRANSMITTED_SUCCESSFULLY</p>
               </div>
               <h3 class="italic-serif" style="font-size: 2rem; margin-top: 20px;">Inquiry Received.</h3>
-              <p style="color: var(--text-dim);">The architectural review has begun. I will respond shortly.</p>
+              <p style="color: var(--text-mid); margin-top: 0.5rem;">I'll review your message and respond promptly.</p>
             </div>
           `;
         } else {
           throw new Error();
         }
-      } catch (error) {
-        btn.innerText = "TRANSMISSION_FAILED. RE-TRY?";
+      } catch {
+        btn.textContent = "TRANSMISSION_FAILED. RE-TRY?";
         btn.style.opacity = "1";
         btn.disabled = false;
       }
     });
   }
 
-  // --- Kernel Panic System ---
+  // --- Kernel panic (10 clicks in 5s) ---
   let clickBuffer = [];
   document.addEventListener("click", () => {
     const now = Date.now();
     clickBuffer.push(now);
-    clickBuffer = clickBuffer.filter((time) => now - time < 5000);
+    clickBuffer = clickBuffer.filter((t) => now - t < 5000);
     if (clickBuffer.length > 10) triggerKernelPanic();
   });
 
@@ -173,6 +221,7 @@ window.addEventListener("load", () => {
     const overlay = document.getElementById("kernel-panic");
     if (!overlay) return;
     overlay.style.display = "flex";
+    clickBuffer = [];
     const terminal = document.getElementById("panic-terminal");
     const logs = [
       "STACK_TRACE: NullPointerException at 0x8823",
@@ -182,11 +231,11 @@ window.addEventListener("load", () => {
       "STATUS: Kernel execution suspended.",
     ];
     if (terminal) {
-      terminal.innerHTML = ""; // Clear existing logs
+      terminal.innerHTML = "";
       logs.forEach((log, i) => {
         setTimeout(() => {
           const p = document.createElement("p");
-          p.innerText = `> ${log}`;
+          p.textContent = `> ${log}`;
           terminal.appendChild(p);
         }, i * 300);
       });
@@ -194,10 +243,9 @@ window.addEventListener("load", () => {
     const input = document.getElementById("panic-input");
     if (input) {
       input.focus();
-      // Remove old listeners to prevent stacking
-      const new_input = input.cloneNode(true);
-      input.parentNode.replaceChild(new_input, input);
-      new_input.addEventListener("input", (e) => {
+      const fresh = input.cloneNode(true);
+      input.parentNode.replaceChild(fresh, input);
+      fresh.addEventListener("input", (e) => {
         const val = e.target.value.toUpperCase();
         if (val === "REBOOT") location.reload();
         if (val === "ROOT") {
@@ -208,24 +256,24 @@ window.addEventListener("load", () => {
     }
   }
 
-  // --- Access Vault (SUDO) ---
+  // --- SUDO access vault ---
   const elevateBtn = document.getElementById("elevate-btn");
   if (elevateBtn) {
     elevateBtn.addEventListener("click", () => {
       const pass = prompt("ENTER SYSTEM PASSCODE (Hint: ROOT)");
-      if (pass && pass.toUpperCase() === "ROOT") unlockVault();
+      if (pass?.toUpperCase() === "ROOT") unlockVault();
     });
   }
 
   function unlockVault() {
-    const elevatedSection = document.getElementById("elevated-links");
-    if (elevatedSection) {
-      elevatedSection.style.display = "block";
+    const section = document.getElementById("elevated-links");
+    if (section) {
+      section.style.display = "block";
       addLog("AUTH", "/access/sudo-elevated-success");
     }
   }
 
-  // --- Mobile Menu Logic ---
+  // --- Mobile menu ---
   const menuTrigger = document.getElementById("mobile-menu-trigger");
   const navMenu = document.querySelector(".nav-menu");
 
@@ -234,8 +282,6 @@ window.addEventListener("load", () => {
       navMenu.classList.toggle("active");
       const spans = menuTrigger.querySelectorAll("span");
       const isActive = navMenu.classList.contains("active");
-
-      // Safely handle 2 or 3 spans depending on your HTML setup
       if (spans.length >= 2) {
         spans[0].style.transform = isActive
           ? "rotate(45deg) translate(5px, 5px)"
@@ -244,86 +290,86 @@ window.addEventListener("load", () => {
           ? "rotate(-45deg) translate(5px, -5px)"
           : "";
       }
-      if (spans.length === 3) {
-        spans[1].style.opacity = isActive ? "0" : "1";
-      }
+      if (spans.length === 3) spans[1].style.opacity = isActive ? "0" : "1";
     });
 
     document.querySelectorAll(".nav-link").forEach((link) => {
       link.addEventListener("click", () => {
         navMenu.classList.remove("active");
-        const spans = menuTrigger.querySelectorAll("span");
-        spans.forEach((span) => {
-          span.style.transform = "";
-          span.style.opacity = "1";
+        menuTrigger.querySelectorAll("span").forEach((s) => {
+          s.style.transform = "";
+          s.style.opacity = "1";
         });
       });
     });
   }
-});
+
+  // --- Performance metrics in footer ---
+  const navEntry = performance.getEntriesByType("navigation")[0];
+  if (navEntry) {
+    const ttfb = Math.round(navEntry.responseStart - navEntry.requestStart);
+    const domTime = Math.round(
+      navEntry.domContentLoadedEventEnd - navEntry.startTime,
+    );
+    const ltEl = document.getElementById("load-time");
+    const dtEl = document.getElementById("dom-ready");
+    if (ltEl) ltEl.textContent = `TTFB: ${ttfb}ms`;
+    if (dtEl) dtEl.textContent = `DOM: ${domTime}ms`;
+  }
+}); // end load
+
+// ==========================================
+// 3. TERMINAL TYPING — Intersection-triggered
+// ==========================================
 function initTerminalTyping() {
   const terminalBody = document.querySelector(".terminal-body");
   if (!terminalBody) return;
 
-  // 1. Grab all the lines (commands, outputs, status)
   const lines = Array.from(terminalBody.children);
-
-  // 2. Store their original content and hide them
   const lineData = lines.map((line) => {
-    const htmlContent = line.innerHTML;
-    const textContent = line.textContent;
-    const isCommand = line.classList.contains("command");
-
-    line.innerHTML = ""; // Empty the line temporarily
-
-    return { element: line, htmlContent, textContent, isCommand };
+    const html = line.innerHTML;
+    const text = line.textContent;
+    const isCmd = line.classList.contains("command");
+    line.innerHTML = "";
+    return { element: line, html, text, isCmd };
   });
 
   let currentLine = 0;
 
-  // 3. The function that types out the code
   function processNextLine() {
-    if (currentLine >= lineData.length) return; // All done!
+    if (currentLine >= lineData.length) return;
+    const { element, html, text, isCmd } = lineData[currentLine];
 
-    const { element, htmlContent, textContent, isCommand } =
-      lineData[currentLine];
-
-    if (isCommand) {
-      // If it's a command, type it out character by character
-      let charIndex = 0;
-      element.classList.add("typing-cursor"); // Add the blinking block
-
-      const typingInterval = setInterval(() => {
-        element.textContent = textContent.slice(0, ++charIndex);
-
-        if (charIndex === textContent.length) {
-          clearInterval(typingInterval);
-          element.classList.remove("typing-cursor"); // Remove cursor
+    if (isCmd) {
+      let charIdx = 0;
+      element.classList.add("typing-cursor");
+      const iv = setInterval(() => {
+        element.textContent = text.slice(0, ++charIdx);
+        if (charIdx === text.length) {
+          clearInterval(iv);
+          element.classList.remove("typing-cursor");
           currentLine++;
-          setTimeout(processNextLine, 200); // Short pause before showing output
+          setTimeout(processNextLine, 180);
         }
-      }, 40); // 40ms per character - adjust for typing speed!
+      }, 36);
     } else {
-      // If it's an output or status, just pop it onto the screen instantly
-      element.innerHTML = htmlContent;
+      element.innerHTML = html;
       currentLine++;
-      setTimeout(processNextLine, 600); // Longer pause before the next command starts
+      setTimeout(processNextLine, 560);
     }
   }
 
-  // 4. Use an Observer so it only starts when you scroll to the terminal
   const observer = new IntersectionObserver(
     (entries) => {
       if (entries[0].isIntersecting) {
         processNextLine();
-        observer.disconnect(); // Stop observing so it only types once
+        observer.disconnect();
       }
     },
-    { threshold: 0.5 },
-  ); // Triggers when 50% of the terminal is visible
+    { threshold: 0.4 },
+  );
 
   observer.observe(terminalBody);
 }
 
-// Start the setup
 initTerminalTyping();
