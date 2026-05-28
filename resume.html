@@ -507,8 +507,10 @@
       <header class="resume-header">
         <h1>Femi Sodiq Oladele</h1>
         <p class="headline">
-          Frontend Engineer · React · JavaScript · Progressive Web Apps
+          Frontend Engineer · React.JS · Progressive Web Apps · Backend
+          Engineering
         </p>
+
         <address class="contact-row" style="font-style: normal">
           <a href="mailto:oladelesodiq4568@gmail.com"
             >oladelesodiq4568@gmail.com</a
@@ -532,14 +534,15 @@
       <section class="resume-section" aria-labelledby="summary-heading">
         <h2 class="section-label" id="summary-heading">Professional Summary</h2>
         <p class="summary-text">
-          Frontend Engineer specializing in React and JavaScript, with hands-on
-          experience building performant, offline-first Progressive Web Apps
-          using browser-native APIs including IndexedDB, Service Workers, and
-          the Web Audio API — without framework overhead. Proven ability to lead
-          frontend teams, integrate REST APIs, and deliver clean, accessible
-          user interfaces. Currently pursuing a BSc in Computer Science at the
-          University of Ilorin. Open to junior frontend roles, internships, and
-          remote opportunities worldwide.
+          Frontend Engineer with strong React and JavaScript expertise, focused
+          on building scalable, performant Progressive Web Apps and modern web
+          interfaces. Experienced with REST API integration, offline-first
+          architecture, responsive design, and browser-native technologies
+          including IndexedDB and Service Workers. Currently deepening backend
+          engineering skills with FastAPI, Python, authentication systems, and
+          database-driven application development. Computer Science
+          undergraduate at the University of Ilorin, actively seeking junior
+          software engineering and internship opportunities.
         </p>
       </section>
 
@@ -601,6 +604,7 @@
               <span class="skill-tag">TypeScript</span>
               <span class="skill-tag">SQL</span>
               <span class="skill-tag">Java</span>
+              <span class="skill-tag">Python</span>
               <span class="skill-tag">HTML5</span>
               <span class="skill-tag">CSS3</span>
             </div>
@@ -634,10 +638,11 @@
           <div class="skill-row">
             <span class="skill-category">Backend & Tools</span>
             <div class="skill-tags">
+              <span class="skill-tag">FastAPI</span>
               <span class="skill-tag">Node.js</span>
               <span class="skill-tag">Express.js</span>
               <span class="skill-tag">PostgreSQL</span>
-              <span class="skill-tag">MongoDB</span>
+
               <span class="skill-tag">Git & GitHub</span>
               <span class="skill-tag">Postman</span>
               <span class="skill-tag">Supabase</span>
@@ -649,7 +654,7 @@
             <div class="skill-tags">
               <span class="skill-tag">GitHub Copilot</span>
               <span class="skill-tag">Claude</span>
-              <span class="skill-tag">ChatGPT</span>
+
               <span class="skill-tag">Antigravity</span>
             </div>
           </div>
@@ -732,6 +737,64 @@
 
         <article class="item">
           <div class="item-header">
+            <span class="item-title">Study Planner Pro v2</span>
+          </div>
+          <p class="item-tech">
+            React 18 · Vite · IndexedDB · PDF.js · Service Workers · PWA
+          </p>
+          <ul class="item-bullets">
+            <li>
+              Rebuilt a Vanilla JS productivity app from scratch in React after
+              identifying that a single 300-line render function was making
+              every new feature a risk, the rewrite introduced proper state
+              management, component separation, and a codebase safe to extend.
+            </li>
+            <li>
+              Chose IndexedDB over localStorage for file storage after hitting
+              the platform's 5MB limit, the decision unlocked persistent PDF and
+              DOCX uploads that survive browser restarts and work fully offline.
+            </li>
+            <li>
+              Designed an update system so users always receive new versions
+              without being silently stuck on old ones — a real problem in
+              installable web apps that most implementations ignore.
+            </li>
+            <li>
+              An AI study assistant — document summarisation, quiz generation,
+              and contextual Q&A — is currently in development.
+            </li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <div class="item-header">
+            <span class="item-title">SwiftCart</span>
+          </div>
+          <p class="item-tech">
+            Vanilla JavaScript · HTML5 · CSS3 (Flexbox & Grid) · localStorage
+          </p>
+          <ul class="item-bullets">
+            <li>
+              Led a frontend team to architect a multi-role e-commerce platform,
+              establishing a unified, framework-free dark mode design system
+              featuring glassmorphism and custom CSS properties.
+            </li>
+            <li>
+              Engineered robust client-side state management utilizing
+              localStorage to seamlessly persist and synchronize cart data,
+              multi-step checkout flows, and order histories across distinct
+              Buyer, Seller, and Rider portals.
+            </li>
+            <li>
+              Developed dynamic, interactive dashboards and UI components,
+              implementing real-time product filtering via IntersectionObserver,
+              inventory management, and active delivery tracking.
+            </li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <div class="item-header">
             <span class="item-title">Smart Pomodoro Tasker</span>
           </div>
           <p class="item-tech">
@@ -764,57 +827,6 @@
 
         <article class="item">
           <div class="item-header">
-            <span class="item-title">Study Planner Pro</span>
-          </div>
-          <p class="item-tech">
-            HTML5 · CSS3 · Vanilla JavaScript · Service Workers · Web App
-            Manifest
-          </p>
-          <ul class="item-bullets">
-            <li>
-              Developed an installable PWA combining task management and
-              Pomodoro focus sessions, fully offline-capable with localStorage
-              persistence.
-            </li>
-            <li>
-              Implemented drag-and-drop task reordering, priority auto-sorting,
-              real-time search and filter, and centralised state management
-              without any library dependencies.
-            </li>
-            <li>
-              Shipped a distraction-free, responsive UI installable on any
-              device — foundation project that directly informed the more
-              advanced Smart Pomodoro Tasker.
-            </li>
-          </ul>
-        </article>
-
-        <article class="item">
-          <div class="item-header">
-            <span class="item-title">CS Pathfinder</span>
-          </div>
-          <p class="item-tech">
-            Node.js · Express.js · PostgreSQL (Supabase) · React.js · JavaScript
-          </p>
-          <ul class="item-bullets">
-            <li>
-              Designed and implemented relational database schemas with
-              optimised table relationships and indexing for a structured CS
-              academic resource platform.
-            </li>
-            <li>
-              Built CRUD REST API endpoints with Express.js and advanced
-              filtering for organised academic data retrieval.
-            </li>
-            <li>
-              Applied modular backend architecture and centralised error
-              handling to ensure maintainable, scalable server-side logic.
-            </li>
-          </ul>
-        </article>
-
-        <article class="item">
-          <div class="item-header">
             <span class="item-title">SkyCast — Weather Dashboard</span>
           </div>
           <p class="item-tech">
@@ -836,30 +848,6 @@
               Processed and transformed complex JSON datasets (40+ data points)
               to generate clean daily forecast summaries without any external
               libraries.
-            </li>
-          </ul>
-        </article>
-
-        <article class="item">
-          <div class="item-header">
-            <span class="item-title">Student Result Management System</span>
-          </div>
-          <p class="item-tech">HTML5 · CSS3 · Vanilla JavaScript</p>
-          <ul class="item-bullets">
-            <li>
-              Built a data-driven academic performance app with dynamic grade
-              calculation, strict input validation, and localStorage
-              persistence.
-            </li>
-            <li>
-              Developed real-time analytics dashboards, bidirectional table
-              sorting, live search and filter, and one-click CSV export
-              functionality.
-            </li>
-            <li>
-              Engineered entirely in Vanilla JavaScript using DOM manipulation,
-              array methods, and structured state management — zero
-              dependencies.
             </li>
           </ul>
         </article>
@@ -887,7 +875,21 @@
         <article class="item">
           <div class="item-header">
             <span class="item-title"
-              >Member — Student Representative Council (SRC)</span
+              >Member — Google Developer Groups On Campus (GDGOC)</span
+            >
+            <span class="item-date">2024 – Present</span>
+          </div>
+          <p class="item-note">
+            Active member of the Google Developer Groups On Campus community at
+            the University of Ilorin, participating in developer events,
+            technical workshops, and collaborative learning activities.
+          </p>
+        </article>
+
+        <article class="item">
+          <div class="item-header">
+            <span class="item-title"
+              >Member — Student Representative Council</span
             >
             <span class="item-date">2025 – Present</span>
           </div>
